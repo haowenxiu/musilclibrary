@@ -23,17 +23,25 @@ export default {
   naem: 'CenterRowItem',
   props: {
     path: String,
+    centertransferinfo: {
+      type: String,
+    },
   },
   data() {
-    return { message: '退出登录' }
+    return {}
   },
   methods: {
     userCenterItemClick() {
-      if (this.path == 'exit') {
-        alert('退出码')
+      console.log(this.path === undefined)
+      if (this.centertransferinfo == '退出登录') {
+        this.quirtLogin()
       } else {
+        this.$router.push(this.path)
         console.log(this.path)
       }
+    },
+    quirtLogin() {
+      console.log('退出登录成功')
     },
   },
 }
