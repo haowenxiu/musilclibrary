@@ -28,19 +28,23 @@ export default {
   height: 100%;
 }
 .content {
-  margin-top: 6.5rem;
+  width: 100%;
+  height: 100%;
+  margin-top: 6.2rem;
   display: flex;
   flex-direction: row;
 }
 .left-content {
-  width: 350px;
+  width: 22%;
   height: 100%;
   border-right: 0.1rem solid #b5b9be;
+  background-color: rgb(32, 218, 32);
 }
 .right-content {
+  width: 78%;
   height: 100%;
-  flex-grow: 1;
   display: flex;
   justify-content: center;
+  background-color: rgb(35, 32, 218);
 }
 </style>

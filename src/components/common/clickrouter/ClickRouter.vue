@@ -1,5 +1,5 @@
 <template>
-  <div class="portrait"
+  <div class=""
        @click="itemClick()">
     <slot></slot>
   </div>
@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name:"ClickRouter",
+  name: 'ClickRouter',
   props: {
     path: String,
   },
@@ -16,7 +16,7 @@ export default {
       this.$router.push(this.path)
       console.log(this.path)
     },
-  }
+  },
 }
 </script>
 

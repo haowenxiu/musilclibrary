@@ -1,18 +1,29 @@
+/* 退出登录组件 */
 <template>
-  <div id="exit">
-    <!-- <div class="exit-btn">
-      <span class="iconfont icon-guanji span-icon"></span>
-      <span class="span-text">{{message}}</span>
-    </div> -->
-    <cente-rrow></cente-rrow>
+  <div>
+    <cente-rrow>
+      <center-row-item path="/exit">
+        <template v-slot:center-icon>
+          <i class="iconfont icon-guanji"></i>
+        </template>
+        <template v-slot:center-text>
+          退出登录
+        </template>
+        <template v-slot:user-related>
+          Lv.9
+        </template>
+      </center-row-item>
+    </cente-rrow>
   </div>
 </template>
 
 <script>
-import CenteRrow from 'comp/common/usercenterrow/CenterRow'
+import CenteRrow from 'common/usercenterrow/CenterRow'
+import CenterRowItem from 'common/usercenterrow/CenterRowItem'
+import ClickRouter from 'comp/common/clickrouter/ClickRouter'
 export default {
   name: 'ExitLogin',
-  components: { CenteRrow },
+  components: { CenteRrow, CenterRowItem, ClickRouter },
   data() {
     return {
       message: '退出登录',
@@ -22,11 +33,4 @@ export default {
 </script>
 
 <style scoped>
-#exit {
-  width: 100%;
-  height: 4rem;
-  display: flex;
-  align-items: center;
-  background-color: rgb(158, 152, 152);
-}
 </style>

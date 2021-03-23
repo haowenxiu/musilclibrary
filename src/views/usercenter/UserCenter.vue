@@ -1,6 +1,8 @@
 <template>
   <div>
-    {{message}}
+    <h2>
+      {{message}}
+    </h2>
   </div>
 </template>
 
@@ -9,7 +11,8 @@ export default {
   name: 'UserCenter',
   data() {
     return {
-      message: 'UserCenter',
+      message:
+        'UserCenterUserCenterUserCenterUserCenterUserCenter',
     }
   },
 }

@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import ClickRouter from 'common/clickrouter/ClickRouter'
-import UserCenter from 'common/pop-up/UserCenter.vue'
+import ClickRouter from 'comp/common/clickrouter/ClickRouter'
+import UserCenter from 'comp/common/pop-up/UserCenter.vue'
 
 export default {
   name: 'NavLogin',
@@ -60,20 +60,20 @@ export default {
   /* background-color: rgb(55, 172, 162); */
 }
 .portrait img {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 100%;
   cursor: pointer;
 }
 .personal {
-  margin-left: 1rem;
-  font-size: 1.3rem;
+  margin-left: 1.3rem;
+  font-size: 1.2rem;
   border: none;
   color: rgba(255, 255, 255, 0.8);
   background-color: var(--color-tint);
 }
 .personal span {
-  margin: 0 0.5rem;
+  margin: 0 0.7rem;
 }
 .personal:hover {
   color: rgba(255, 255, 255, 1);

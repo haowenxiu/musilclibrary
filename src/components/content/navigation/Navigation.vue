@@ -58,8 +58,8 @@
 <script>
 import 'assets/font/icon/iconfont'
 import NavLogin from './navlogin/NavLogin'
-import ClickRouter from 'common/clickrouter/ClickRouter.vue'
-import SearchPopUp from 'common/pop-up/SearchPopUp.vue'
+import ClickRouter from 'comp/common/clickrouter/ClickRouter.vue'
+import SearchPopUp from 'comp/common/pop-up/SearchPopUp.vue'
 export default {
   name: 'Navigative',
   components: {
@@ -118,7 +118,7 @@ export default {
 
 #nav {
   width: 100%;
-  height: 6.5rem;
+  height: 6rem;
   position: fixed;
   left: 0;
   right: 0;
@@ -136,7 +136,7 @@ export default {
   cursor: pointer;
 }
 .bg-purple {
-  height: 6.5rem;
+  height: 6rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -158,9 +158,10 @@ export default {
   background-color: rgb(205, 62, 62);
   /* background-color: aqua; */
   outline: none;
-  width: 3rem;
+  width: 2.5rem;
   height: 2.5rem;
   margin: 0 0.5rem;
+  cursor: pointer;
 }
 /* .goback-btn:hover {
   transform: scale(1, 1);
@@ -169,7 +170,7 @@ export default {
   box-shadow: 0 0 10px rgb(205, 62, 62);
 } */
 .findmusic {
-  height: 3rem;
+  height: 2.8rem;
   width: 35rem;
   line-height: 3rem;
   border-radius: 3rem;
@@ -185,10 +186,10 @@ export default {
   border: none;
   outline: none;
   background-color: rgb(205, 62, 62);
-  height: 3rem;
+  height: 2.8rem;
   width: 30rem;
   line-height: 3rem;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   padding-left: 1rem;
   color: rgba(255, 255, 255, 1);
   letter-spacing: 0.15rem;
