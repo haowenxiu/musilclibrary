@@ -6,10 +6,12 @@
 
 <script>
 import MusicMenu from './musicmenu/MusicMenu.vue'
+import UserCreatedMenu from './usercreatedmenu/UserCreatedMenu.vue'
+import UserMusicMenu from './usermusicmenu/UserMusicMenu.vue'
 
 export default {
   name: 'NavMenu',
-  components: { MusicMenu },
+  components: { MusicMenu, UserMusicMenu, UserCreatedMenu },
   data() {
     return {}
   },
