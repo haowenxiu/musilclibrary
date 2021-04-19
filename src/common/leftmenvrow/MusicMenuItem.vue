@@ -27,7 +27,6 @@ export default {
   line-height: 3rem;
   font-size: 1.3rem;
   margin: 0.3rem 0;
-  background-color: red;
   cursor: pointer;
 }
 .menu-row:hover {
