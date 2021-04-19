@@ -9,7 +9,7 @@ export default {
 name:'RankingList',
 data(){
   return{
-    message:'这里是音乐排行榜'
+    message:'这里是音乐排行榜，所有榜单都在这里'
   }
 }
 }
