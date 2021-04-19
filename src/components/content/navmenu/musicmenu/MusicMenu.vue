@@ -1,48 +1,43 @@
 <template>
-  <div class="musicmenu">
-    <span>音乐·生活</span>
-    <div class="menu-row">
-      <span>音乐馆</span>
-    </div>
-    <div class="menu-row">
-      <span>音乐库</span>
-    </div>
-    <div class="menu-row">
-      <span>动态乐园</span>
-    </div>
-  </div>
+  <music-menu-row>
+    <template v-slot:menu-name>
+      <span>音乐 · 生活</span>
+    </template>
+    <click-router path="/MusicHall">
+      <music-menu-item>
+        <template v-slot:menu-text>
+          <span>音乐馆</span>
+        </template>
+      </music-menu-item>
+    </click-router>
+
+    <click-router path="/RankingList">
+      <music-menu-item>
+        <template v-slot:menu-text>
+          <span>音乐排行榜</span>
+        </template>
+      </music-menu-item>
+    </click-router>
+
+    <click-router path="/DynamicPark">
+      <music-menu-item>
+        <template v-slot:menu-text>
+          <span>动态乐园</span>
+        </template>
+      </music-menu-item>
+    </click-router>
+  </music-menu-row>
 </template>
 
 <script>
+import MusicMenuRow from 'common/leftmenvrow/MusicMenuRow'
+import MusicMenuItem from 'common/leftmenvrow/MusicMenuItem.vue'
+import ClickRouter from 'comp/common/clickrouter/ClickRouter.vue'
 export default {
+  components: { MusicMenuRow, MusicMenuItem, ClickRouter },
   name: 'MusicMenu',
 }
 </script>
 
 <style >
-.musicmenu {
-  width: 100%;
-  height: 100%;
-  margin-top: 1.5rem;
-  margin-left: 2rem;
-}
-.musicmenu > span {
-  font-size: 1.3rem;
-  display: inline-block;
-  height: 2.1rem;
-  line-height: 2.1rem;
-  width: 85%;
-  text-align: center;
-  background-color: #fff;
-}
-.menu-row {
-  width: 85%;
-  height: 2.5rem;
-  line-height: 2.5rem;
-  font-size: 1.1rem;
-  background-color: red;
-}
-.menu-row>span{
-  padding-left: 1rem;
-}
 </style>

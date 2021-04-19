@@ -35,7 +35,7 @@ export default {
   flex-direction: row;
 }
 .left-content {
-  width: 22%;
+  width: 21%;
   height: 100%;
   border-right: 0.1rem solid #b5b9be;
   /* background-color: rgb(32, 218, 32); */
