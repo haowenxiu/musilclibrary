@@ -38,7 +38,8 @@ export default {
   width: 22%;
   height: 100%;
   border-right: 0.1rem solid #b5b9be;
-  background-color: rgb(32, 218, 32);
+  /* background-color: rgb(32, 218, 32); */
+  border: 1px solid rgb(32, 218, 32);
 }
 .right-content {
   width: 78%;
