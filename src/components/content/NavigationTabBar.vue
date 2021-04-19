@@ -43,7 +43,7 @@ export default {
 }
 .right-content {
   width: 78%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   background-color: rgb(35, 32, 218);

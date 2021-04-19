@@ -22,12 +22,12 @@ export default {
 
 <style>
 .menu-row {
-  width: 85%;
+  /* width: 85%; */
   height: 3rem;
   line-height: 3rem;
   font-size: 1.3rem;
-  margin: 0.2rem 0;
-  /* background-color: red; */
+  margin: 0.3rem 0;
+  background-color: red;
   cursor: pointer;
 }
 .menu-row:hover {
@@ -35,7 +35,8 @@ export default {
   background-color: #f0f1f2;
 }
 .menu-row > .menu-text {
+  font-size: 1.3rem;
   padding-left: 1.3rem;
-  color: #353535;
+  color: #484849;
 }
 </style>

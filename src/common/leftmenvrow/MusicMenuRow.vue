@@ -2,7 +2,9 @@
   <div class="musicmenu">
     <div class="menu">
       <!-- <span>音乐·生活</span> -->
-      <slot name="menu-name"></slot>
+      <span>
+        <slot name="menu-name"></slot>
+      </span>
     </div>
     <slot></slot>
     <!-- <music-menu-item></music-menu-item> -->
@@ -19,13 +21,13 @@ export default {
 
 <style>
 .musicmenu {
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   margin-top: 1.5rem;
   margin-left: 2rem;
 }
 .musicmenu > .menu {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   display: inline-block;
   height: 2.1rem;
   line-height: 2.1rem;

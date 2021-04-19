@@ -1,29 +1,21 @@
 <template>
   <music-menu-row>
-    <template v-slot:menu-name>
-      <span>音乐 · 生活</span>
-    </template>
+    <template v-slot:menu-name>音乐 · 生活</template>
     <click-router path="/MusicHall">
       <music-menu-item>
-        <template v-slot:menu-text>
-          <span>音乐馆</span>
-        </template>
+        <template v-slot:menu-text>音乐馆</template>
       </music-menu-item>
     </click-router>
 
     <click-router path="/RankingList">
       <music-menu-item>
-        <template v-slot:menu-text>
-          <span>音乐排行榜</span>
-        </template>
+        <template v-slot:menu-text>音乐排行榜</template>
       </music-menu-item>
     </click-router>
 
     <click-router path="/DynamicPark">
       <music-menu-item>
-        <template v-slot:menu-text>
-          <span>动态乐园</span>
-        </template>
+        <template v-slot:menu-text>动态乐园</template>
       </music-menu-item>
     </click-router>
   </music-menu-row>
