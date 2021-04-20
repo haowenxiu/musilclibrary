@@ -23,6 +23,7 @@ export default {
 
 <style>
 @import '~assets/css/base.css';
+
 .page {
   width: 100%;
   height: 100%;
@@ -42,10 +43,10 @@ export default {
   border: 1px solid rgb(32, 218, 32);
 }
 .right-content {
-  width: 78%;
   height: 100vh;
   display: flex;
   justify-content: center;
-  background-color: rgb(35, 32, 218);
+  align-items: center;
+  background-color: rgb(110, 109, 134);
 }
 </style>
