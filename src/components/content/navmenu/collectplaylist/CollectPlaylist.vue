@@ -1,7 +1,21 @@
 <template>
   <music-menu-row>
-    <template v-slot:menu-name>收藏歌单
-      <span class="iconfont icon-caret-down"></span>
+    <!-- <template v-slot:menu-name>
+      <pack-up-lay-down>
+        <span class="iconfont icon-caret-down"></span>
+        <span class="iconfont icon-caret-right"></span>
+      </pack-up-lay-down>
+    </template> -->
+
+    <template v-slot:music-menu-title>
+      <pack-up-lay-down>
+        <music-menu-title>
+          <template v-slot:menu-name>收藏歌单
+            <span class="iconfont icon-caret-down"></span>
+            <span class="iconfont icon-caret-right"></span>
+          </template>
+        </music-menu-title>
+      </pack-up-lay-down>
     </template>
 
     <click-router path="/MusicHall">
@@ -37,8 +51,17 @@
 import MusicMenuRow from 'common/leftmenvrow/MusicMenuRow'
 import MusicMenuItem from 'common/leftmenvrow/MusicMenuItem.vue'
 import ClickRouter from 'comp/common/clickrouter/ClickRouter.vue'
+import PackUpLayDown from 'comp/common/clickrouter/PackUpLayDown.vue'
+import MusicMenuTitle from 'common/leftmenvrow/MusicMenuTitle.vue'
+
 export default {
-  components: { MusicMenuRow, MusicMenuItem, ClickRouter },
+  components: {
+    MusicMenuRow,
+    MusicMenuItem,
+    ClickRouter,
+    PackUpLayDown,
+    MusicMenuTitle,
+  },
   naem: 'CollectPlaylist',
   data() {
     return {}

@@ -1,6 +1,10 @@
 <template>
   <music-menu-row>
-    <template v-slot:menu-name>我的音乐</template>
+    <template v-slot:music-menu-title>
+      <music-menu-title>
+        <template v-slot:menu-name>我的音乐</template>
+      </music-menu-title>
+    </template>
     <click-router path="/Mylovemusiclist">
       <music-menu-item>
         <template v-slot:menu-icon>
@@ -23,7 +27,7 @@
     <click-router path="/Mycollect">
       <music-menu-item>
         <template v-slot:menu-icon>
-          <span class="iconfont icon-yun"></span>
+          <span class="iconfont icon-icon-"></span>
         </template>
         <template v-slot:menu-text>我的收藏</template>
       </music-menu-item>
@@ -35,8 +39,9 @@
 import MusicMenuRow from 'common/leftmenvrow/MusicMenuRow'
 import MusicMenuItem from 'common/leftmenvrow/MusicMenuItem.vue'
 import ClickRouter from 'comp/common/clickrouter/ClickRouter.vue'
+import MusicMenuTitle from 'common/leftmenvrow/MusicMenuTitle.vue'
 export default {
-  components: { MusicMenuRow, MusicMenuItem, ClickRouter },
+  components: { MusicMenuRow, MusicMenuItem, ClickRouter,MusicMenuTitle,  },
   name: 'UserMusicMenu',
 }
 </script>

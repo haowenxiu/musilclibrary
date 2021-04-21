@@ -1,10 +1,22 @@
 <template>
   <music-menu-row>
-    <template v-slot:menu-name>创建歌单</template>
+    <template v-slot:music-menu-title>
+      <pack-up-lay-down>
+        <music-menu-title>
+          <template v-slot:menu-name>创建的歌单
+            <span class="iconfont icon-caret-down"></span>
+            <span class="iconfont icon-caret-right"></span>
+          </template>
+        </music-menu-title>
+      </pack-up-lay-down>
+      <template>
+        <el-button type="text"
+                   @click="addsonglist"
+                   class="addsonglist">+</el-button>
+      </template>
+    </template>
     <!-- <span class="">+</span> -->
-    <el-button type="text"
-               @click="addsonglist"
-               class="addsonglist">+</el-button>
+
     <click-router path="/Musicnetworklocation">
       <music-menu-item>
         <template v-slot:menu-icon>
@@ -44,8 +56,16 @@
 import MusicMenuRow from 'common/leftmenvrow/MusicMenuRow'
 import MusicMenuItem from 'common/leftmenvrow/MusicMenuItem.vue'
 import ClickRouter from 'comp/common/clickrouter/ClickRouter.vue'
+import MusicMenuTitle from 'common/leftmenvrow/MusicMenuTitle.vue'
+import PackUpLayDown from '../../../common/clickrouter/PackUpLayDown.vue'
 export default {
-  components: { MusicMenuRow, MusicMenuItem, ClickRouter },
+  components: {
+    MusicMenuRow,
+    MusicMenuItem,
+    ClickRouter,
+    MusicMenuTitle,
+    PackUpLayDown,
+  },
   name: 'UserCreatedMenu',
   data() {
     return {}
@@ -79,11 +99,17 @@ export default {
 </script>
 
 <style>
+.musicmenu-menu > button {
+  height: 100%;
+  padding: 0;
+}
 .addsonglist > span {
   display: inline;
   color: black;
   font-size: 1.7rem;
   font-weight: 100;
+  padding: 0;
+  padding: 0 2rem 0 0;
 }
 .el-message-box__btns > button {
   background-color: red;
