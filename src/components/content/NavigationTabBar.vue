@@ -27,26 +27,51 @@ export default {
 .page {
   width: 100%;
   height: 100%;
-}
-.content {
-  width: 100%;
-  height: 100%;
-  margin-top: 6.2rem;
   display: flex;
   flex-direction: row;
 }
-.left-content {
-  width: 21%;
-  height: 100%;
-  border-right: 0.1rem solid #b5b9be;
-  /* background-color: rgb(32, 218, 32); */
-  border: 1px solid rgb(32, 218, 32);
+.content {
+  width: 100%;
+  /* height: 100%; */
+  margin-top: 6.1rem;
+  border-top: 1px solid rgb(110, 109, 134);
+  display: grid;
+  grid-template-columns: 24rem auto;
+  /* flex-direction: row; */
 }
+.left-content {
+  /* height: 50%; */
+  border-right: 0.1rem solid #b5b9be;
+  height: 90vh;
+  overflow-y: scroll;
+}
+.left-content:hover {
+  overflow-y: scroll;
+}
+.left-content::-webkit-scrollbar {
+  /*滚动条基本样式，高度*/
+  width: 4px;
+  height: 4px;
+}
+.left-content::-webkit-scrollbar-thumb {
+  /*滚动条上层颜色*/
+  border-radius: 5px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+}
+.left-content::-webkit-scrollbar-track {
+  /*滚动条底层颜色*/
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.1);
+}
+
 .right-content {
-  height: 100vh;
+  /* width: 80%; */
+  /* height: 200vh; */
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(110, 109, 134);
+  /* background-color: rgb(110, 109, 134); */
 }
 </style>

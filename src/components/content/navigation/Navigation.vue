@@ -187,7 +187,8 @@ export default {
   outline: none;
   background-color: rgb(205, 62, 62);
   height: 2.8rem;
-  width: 30rem;
+  width: 25;
+  border-radius: 3rem;
   line-height: 3rem;
   font-size: 1.3rem;
   padding-left: 1rem;

@@ -22,20 +22,33 @@ export default {
 
 <style>
 .menu-row {
-  /* width: 85%; */
+  width: 95%;
   height: 3rem;
   line-height: 3rem;
   font-size: 1.3rem;
   margin: 0.3rem 0;
   cursor: pointer;
+  display: grid;
+  grid-template-columns: 0.1fr 4fr 1fr;
+}
+.menu-icon > span {
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 .menu-row:hover {
   border-radius: 0.5rem;
   background-color: #f0f1f2;
 }
-.menu-row > .menu-text {
+.menu-row > div {
+  display: inline;
+  margin-left: 0.5rem;
+}
+.menu-text {
   font-size: 1.3rem;
-  padding-left: 1.3rem;
+  padding: 0 1rem;
   color: #484849;
+}
+.menu-extra > span {
+  font-size: 1.8rem;
 }
 </style>

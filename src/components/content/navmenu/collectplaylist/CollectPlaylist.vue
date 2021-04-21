@@ -1,31 +1,33 @@
 <template>
   <music-menu-row>
-    <template v-slot:menu-name>我的音乐</template>
-    <click-router path="/Mylovemusiclist">
+    <template v-slot:menu-name>收藏歌单
+      <span class="iconfont icon-caret-down"></span>
+    </template>
+
+    <click-router path="/MusicHall">
       <music-menu-item>
         <template v-slot:menu-icon>
-          <span class="iconfont icon-like-line"></span>
+          <span class="iconfont icon-icon-- "></span>
         </template>
-        <template v-slot:menu-text>我喜欢的音乐</template>
-        <template v-slot:menu-extra>
-          <span class="iconfont icon-icon_huabanfuben"></span>
-        </template>
+        <template v-slot:menu-text>欧美抒情</template>
       </music-menu-item>
     </click-router>
-    <click-router path="/Musicnetworklocation">
+
+    <click-router path="/RankingList">
       <music-menu-item>
         <template v-slot:menu-icon>
-          <span class="iconfont icon-yun"></span>
+          <span class="iconfont icon-icon--"></span>
         </template>
-        <template v-slot:menu-text>我的云音乐盘</template>
+        <template v-slot:menu-text>安静</template>
       </music-menu-item>
     </click-router>
-    <click-router path="/Mycollect">
+
+    <click-router path="/DynamicPark">
       <music-menu-item>
         <template v-slot:menu-icon>
-          <span class="iconfont icon-yun"></span>
+          <span class="iconfont icon-icon--"></span>
         </template>
-        <template v-slot:menu-text>我的收藏</template>
+        <template v-slot:menu-text>摇滚</template>
       </music-menu-item>
     </click-router>
   </music-menu-row>
@@ -37,7 +39,10 @@ import MusicMenuItem from 'common/leftmenvrow/MusicMenuItem.vue'
 import ClickRouter from 'comp/common/clickrouter/ClickRouter.vue'
 export default {
   components: { MusicMenuRow, MusicMenuItem, ClickRouter },
-  name: 'UserMusicMenu',
+  naem: 'CollectPlaylist',
+  data() {
+    return {}
+  },
 }
 </script>
 

@@ -32,28 +32,4 @@ export default {
 </script>
 
 <style >
-.musicmenu {
-  width: 100%;
-  height: 100%;
-  margin-top: 1.5rem;
-  margin-left: 2rem;
-}
-.musicmenu > span {
-  font-size: 1.3rem;
-  display: inline-block;
-  height: 2.1rem;
-  line-height: 2.1rem;
-  width: 85%;
-  text-align: center;
-  background-color: #fff;
-}
-.menu-row {
-  width: 85%;
-  height: 2.5rem;
-  line-height: 2.5rem;
-  font-size: 1.1rem;
-}
-.menu-row > span {
-  padding-left: 1rem;
-}
 </style>
