@@ -5,7 +5,7 @@
         <template v-slot:menu-name>音乐 · 生活</template>
       </music-menu-title>
     </template>
-    <click-router path="/MusicHall">
+    <click-router path="/homePage">
       <music-menu-item>
         <template v-slot:menu-text>音乐馆</template>
       </music-menu-item>

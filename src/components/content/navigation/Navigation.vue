@@ -5,7 +5,7 @@
       <!-- 标签 -->
       <el-col :span="6">
         <click-router class="grid-content bg-purple Log"
-                      path="/home">
+                      path="/homePage">
           <svg class="icon"
                aria-hidden="true">
             <use xlink:href="#icon-music-rf"></use>
