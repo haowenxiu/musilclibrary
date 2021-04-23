@@ -1,22 +1,26 @@
 <template>
-  <div class="page">
+  <div class="pages">
     <navigation class="header"></navigation>
+    <div style="height: 0;overflow: hidden;clear: both;"></div>
     <div class="content">
       <nav-menu class="left-content"></nav-menu>
       <router-view class="right-content"></router-view>
     </div>
+    <page-footer class="footer"></page-footer>
   </div>
 </template>
 
 <script>
 import Navigation from 'content/navigation/Navigation.vue'
 import NavMenu from './navmenu/NavMenu.vue'
+import PageFooter from './footer/Footer.vue'
 
 export default {
   name: 'App',
   components: {
     Navigation,
     NavMenu,
+    PageFooter,
   },
 }
 </script>
@@ -24,19 +28,25 @@ export default {
 <style>
 @import '~assets/css/base.css';
 
-.page {
+.pages {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: row;
+  /* display: flex;
+  flex-direction: row; */
+}
+
+.header {
+  width: 100%;
+  height: 50rem;
+  z-index: 9999;
 }
 .content {
   width: 100%;
-  /* height: 100%; */
+  height: 100%;
   margin-top: 6.1rem;
   border-top: 1px solid rgb(110, 109, 134);
   display: grid;
-  grid-template-columns: 24rem auto;
+  grid-template-columns: 26rem auto;
   /* flex-direction: row; */
 }
 .left-content {
@@ -51,28 +61,26 @@ export default {
 }
 .left-content::-webkit-scrollbar {
   /*滚动条基本样式，高度*/
-  width: 4px;
+  width: 2px;
   height: 4px;
-}
-.left-content::-webkit-scrollbar-thumb {
-  /*滚动条上层颜色*/
-  border-radius: 5px;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-  background: rgba(0, 0, 0, 0.2);
-}
-.left-content::-webkit-scrollbar-track {
-  /*滚动条底层颜色*/
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-  border-radius: 0;
-  background: rgba(0, 0, 0, 0.1);
 }
 
 .right-content {
   /* width: 80%; */
   /* height: 200vh; */
+  width: 100%;
+  /*display: flex;
+  justify-content: center; */
+  /* align-items: center; */
+  /* background-color: rgb(110, 109, 134); */
+}
+.footer {
+  width: 100%;
+  height: 500px;
+  background-color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: rgb(110, 109, 134); */
+  color: #b5b9be;
 }
 </style>

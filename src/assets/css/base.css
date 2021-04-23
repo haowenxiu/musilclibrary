@@ -26,6 +26,25 @@ body {
   background: var(--color-background);
   color: var(--color-text);
   width: 100vw;
+  overflow: -Scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  /*滚动条基本样式，高度*/
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  /*滚动条上层颜色*/
+  border-radius: 5px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-track {
+  /*滚动条底层颜色*/
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  background: rgba(39, 39, 39, 0.1);
 }
 
 a {

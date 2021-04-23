@@ -21,6 +21,9 @@ export default {
 </script>
 
 <style>
+.menu-conten {
+  padding-left: 1.5rem;
+}
 .menu-row {
   width: 95%;
   height: 3rem;
