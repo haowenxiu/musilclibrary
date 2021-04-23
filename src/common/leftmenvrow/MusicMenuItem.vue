@@ -47,8 +47,10 @@ export default {
   font-size: 1.3rem;
   padding: 0 1rem;
   color: #484849;
+  transition: all 0.5s;
 }
-.menu-extra > span {
+.menu-extra span {
   font-size: 1.8rem;
+  transform: scale(1.1);
 }
 </style>

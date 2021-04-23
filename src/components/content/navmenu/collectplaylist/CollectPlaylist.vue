@@ -1,49 +1,45 @@
 <template>
   <music-menu-row>
-    <!-- <template v-slot:menu-name>
-      <pack-up-lay-down>
-        <span class="iconfont icon-caret-down"></span>
-        <span class="iconfont icon-caret-right"></span>
-      </pack-up-lay-down>
-    </template> -->
-
-    <template v-slot:music-menu-title>
-      <pack-up-lay-down>
-        <music-menu-title>
-          <template v-slot:menu-name>收藏歌单
-            <span class="iconfont icon-caret-down"></span>
-            <span class="iconfont icon-caret-right"></span>
-          </template>
-        </music-menu-title>
-      </pack-up-lay-down>
-    </template>
-
-    <click-router path="/MusicHall">
-      <music-menu-item>
-        <template v-slot:menu-icon>
-          <span class="iconfont icon-icon-- "></span>
+    <el-collapse accordion
+                 v-model="activeNames">
+      <el-collapse-item name="1">
+        <template slot="title">
+          <!-- <template v-slot:music-menu-title> -->
+          <pack-up-lay-down>
+            <music-menu-title>
+              <template v-slot:menu-name>收藏歌单</template>
+            </music-menu-title>
+          </pack-up-lay-down>
+          <!-- </template> -->
         </template>
-        <template v-slot:menu-text>欧美抒情</template>
-      </music-menu-item>
-    </click-router>
+        <click-router path="/MusicHall">
+          <music-menu-item>
+            <template v-slot:menu-icon>
+              <span class="iconfont icon-icon-- "></span>
+            </template>
+            <template v-slot:menu-text>欧美抒情</template>
+          </music-menu-item>
+        </click-router>
 
-    <click-router path="/RankingList">
-      <music-menu-item>
-        <template v-slot:menu-icon>
-          <span class="iconfont icon-icon--"></span>
-        </template>
-        <template v-slot:menu-text>安静</template>
-      </music-menu-item>
-    </click-router>
+        <click-router path="/RankingList">
+          <music-menu-item>
+            <template v-slot:menu-icon>
+              <span class="iconfont icon-icon--"></span>
+            </template>
+            <template v-slot:menu-text>安静</template>
+          </music-menu-item>
+        </click-router>
 
-    <click-router path="/DynamicPark">
-      <music-menu-item>
-        <template v-slot:menu-icon>
-          <span class="iconfont icon-icon--"></span>
-        </template>
-        <template v-slot:menu-text>摇滚</template>
-      </music-menu-item>
-    </click-router>
+        <click-router path="/DynamicPark">
+          <music-menu-item>
+            <template v-slot:menu-icon>
+              <span class="iconfont icon-icon--"></span>
+            </template>
+            <template v-slot:menu-text>摇滚</template>
+          </music-menu-item>
+        </click-router>
+      </el-collapse-item>
+    </el-collapse>
   </music-menu-row>
 </template>
 
@@ -64,10 +60,13 @@ export default {
   },
   naem: 'CollectPlaylist',
   data() {
-    return {}
+    return { activeNames: ['1'] }
   },
 }
 </script>
 
 <style>
+.el-collapse {
+  border: none;
+}
 </style>

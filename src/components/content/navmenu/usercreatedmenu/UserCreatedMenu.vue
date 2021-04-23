@@ -1,54 +1,69 @@
 <template>
   <music-menu-row>
-    <template v-slot:music-menu-title>
-      <pack-up-lay-down>
-        <music-menu-title>
-          <template v-slot:menu-name>创建的歌单
-            <span class="iconfont icon-caret-down"></span>
-            <span class="iconfont icon-caret-right"></span>
-          </template>
-        </music-menu-title>
-      </pack-up-lay-down>
-      <template>
-        <el-button type="text"
-                   @click="addsonglist"
-                   class="addsonglist">+</el-button>
-      </template>
-    </template>
-    <!-- <span class="">+</span> -->
+    <el-collapse accordion
+                 v-model="activeNames">
+      <el-collapse-item name="1">
+        <template slot="title">
+          <!-- <template v-slot:music-menu-title> -->
+          <pack-up-lay-down>
+            <music-menu-title>
+              <template v-slot:menu-name>创建的歌单</template>
+            </music-menu-title>
+          </pack-up-lay-down>
 
-    <click-router path="/Musicnetworklocation">
-      <music-menu-item>
-        <template v-slot:menu-icon>
-          <span class="iconfont icon-icon--"></span>
+          <!-- </template> -->
         </template>
-        <template v-slot:menu-text>旅行</template>
-      </music-menu-item>
-    </click-router>
-    <click-router path="/Mycollect">
-      <music-menu-item>
-        <template v-slot:menu-icon>
-          <span class="iconfont icon-icon--"></span>
+        <template>
+          <music-menu-item>
+            <template v-slot:menu-icon>
+              <span class="iconfont icon-like-line"></span>
+            </template>
+            <template v-slot:menu-text>添加新的歌单</template>
+            <template v-slot:menu-extra>
+              <div class="addmusiclist-icon"
+                   @click="addsonglist">
+                <span class="iconfont icon-tianjia"></span>
+              </div>
+            </template>
+          </music-menu-item>
+
         </template>
-        <template v-slot:menu-text>薛之谦</template>
-      </music-menu-item>
-    </click-router>
-    <click-router path="/Mycollect">
-      <music-menu-item>
-        <template v-slot:menu-icon>
-          <span class="iconfont icon-icon--"></span>
-        </template>
-        <template v-slot:menu-text>你好，生活</template>
-      </music-menu-item>
-    </click-router>
-    <click-router path="/Mycollect">
-      <music-menu-item>
-        <template v-slot:menu-icon>
-          <span class="iconfont icon-icon--"></span>
-        </template>
-        <template v-slot:menu-text>海底</template>
-      </music-menu-item>
-    </click-router>
+        <!-- <span class="">+</span> -->
+
+        <click-router path="/Musicnetworklocation">
+          <music-menu-item>
+            <template v-slot:menu-icon>
+              <span class="iconfont icon-icon--"></span>
+            </template>
+            <template v-slot:menu-text>旅行</template>
+          </music-menu-item>
+        </click-router>
+        <click-router path="/Mycollect">
+          <music-menu-item>
+            <template v-slot:menu-icon>
+              <span class="iconfont icon-icon--"></span>
+            </template>
+            <template v-slot:menu-text>薛之谦</template>
+          </music-menu-item>
+        </click-router>
+        <click-router path="/Mycollect">
+          <music-menu-item>
+            <template v-slot:menu-icon>
+              <span class="iconfont icon-icon--"></span>
+            </template>
+            <template v-slot:menu-text>你好，生活</template>
+          </music-menu-item>
+        </click-router>
+        <click-router path="/Mycollect">
+          <music-menu-item>
+            <template v-slot:menu-icon>
+              <span class="iconfont icon-icon--"></span>
+            </template>
+            <template v-slot:menu-text>海底</template>
+          </music-menu-item>
+        </click-router>
+      </el-collapse-item>
+    </el-collapse>
   </music-menu-row>
 </template>
 
@@ -68,7 +83,9 @@ export default {
   },
   name: 'UserCreatedMenu',
   data() {
-    return {}
+    return {
+      activeNames: ['1'],
+    }
   },
   methods: {
     addsonglist() {
@@ -133,4 +150,28 @@ export default {
 
   -webkit-user-modify: read-write-plaintext-only; 
 }*/
+.el-collapse-item__content {
+  padding-bottom: 0;
+}
+.addmusiclist-icon {
+  margin: 0.45rem 0;
+  display: flex;
+  /* background-color: red; */
+  width: 3.5rem;
+  height: 2.1rem;
+  line-height: 2.1rem;
+  justify-content: center;
+  border: 0.1rem solid #b6b1b1;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.5s;
+  margin-right: 1rem;
+}
+.addmusiclist-icon > span {
+  font-size: 1.5rem;
+}
+.addmusiclist-icon:hover {
+  /* background-color: red; */
+  transform: scale(1.1);
+}
 </style>

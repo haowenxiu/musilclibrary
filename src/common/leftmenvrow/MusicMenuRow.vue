@@ -1,8 +1,8 @@
 <template>
   <div class="musicmenu">
-    <div class="musicmenu-menu">
+    <!-- <div class="musicmenu-menu"> -->
       <slot name="music-menu-title"></slot>
-    </div>
+    <!-- </div> -->
     <slot></slot>
     <!-- <music-menu-item></music-menu-item> -->
   </div>

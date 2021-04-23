@@ -41,6 +41,7 @@ export default {
 }
 .left-content {
   /* height: 50%; */
+  padding-top: 1.5rem;
   border-right: 0.1rem solid #b5b9be;
   height: 90vh;
   overflow-y: scroll;

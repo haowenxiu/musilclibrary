@@ -18,7 +18,7 @@ export default {
 .musicmenu {
   /* width: 100%;
   height: 100%; */
-  margin-top: 1.5rem;
+  /* margin-top: 1.5rem; */
   margin-left: 2rem;
 }
 .musicmenu .menu {
