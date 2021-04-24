@@ -1,20 +1,18 @@
 /* 退出登录组件 */
 <template>
-  <div>
-    <center-row>
-      <center-row-item :centertransferinfo="message">
-        <template v-slot:center-icon>
-          <i class="iconfont icon-guanji"></i>
-        </template>
-        <template v-slot:center-text>
-          {{message}}
-        </template>
-        <template v-slot:user-related>
-          Lv.9
-        </template>
-      </center-row-item>
-    </center-row>
-  </div>
+  <center-row>
+    <center-row-item :centertransferinfo="message">
+      <template v-slot:center-icon>
+        <i class="iconfont icon-guanji"></i>
+      </template>
+      <template v-slot:center-text>
+        {{message}}
+      </template>
+      <template v-slot:user-related>
+        Lv.9
+      </template>
+    </center-row-item>
+  </center-row>
 </template>
 
 <script>
@@ -32,5 +30,5 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 </style>

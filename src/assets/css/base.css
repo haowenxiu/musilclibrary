@@ -5,6 +5,8 @@
   --color-high-text: #c0092a;
   --color-tint: rgb(236, 65, 65); /* 背景颜色 */
   --color-dark: rgb(126, 29, 29); /* 暗背景颜色 */
+  --color-hovercolor: #f0f1f2;
+  --color-bordercolor: #b6b1b1;
   --color-background: #fff;
   --font-size: 14px;
   --line-height: 1.5;

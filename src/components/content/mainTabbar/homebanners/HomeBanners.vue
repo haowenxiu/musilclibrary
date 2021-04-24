@@ -6,7 +6,8 @@
       <el-carousel-item v-for="item in banners"
                         :key="item.bannersImg">
         <!-- <h3 class="medium">{{ item.bannersImg }}</h3> -->
-        <img :src="item.bannersImg"
+        <img v-lazy="item.bannersImg"
+             :key="item.bannersImg"
              :alt="item.bannersId"
              :data-id="item.bannersId"
              class="medium">

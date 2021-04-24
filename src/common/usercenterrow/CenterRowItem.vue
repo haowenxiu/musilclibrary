@@ -53,6 +53,7 @@ export default {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  font-weight: 300;
 }
 .centerrow-conten > div {
   display: flex;
