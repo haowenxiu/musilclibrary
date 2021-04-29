@@ -78,4 +78,18 @@ export default {
   width: 50%;
   border-radius: 1.5rem;
 }
+.el-carousel__button {
+  width: 12px;
+  height: 4px;
+  border-radius: 25%;
+}
+.el-carousel__indicator--horizontal {
+  padding: 12px 6px;
+}
+.el-carousel__arrow {
+  width:2.2rem ;
+  height: 7rem;
+  border-radius: 2rem;
+  background-color: rgba(31, 45, 61, 0.29);
+}
 </style>
