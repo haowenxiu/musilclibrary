@@ -218,13 +218,8 @@ export default {
 }
 .el-tabs__content {
   height: 100%;
-
-  /* background-color: #0f0; */
-
   display: flex;
-
   justify-content: center;
-
   align-items: center;
 }
 .el-tabs__content {
