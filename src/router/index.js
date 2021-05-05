@@ -28,6 +28,10 @@ const routes = [
   {
     path: "/RankingList",
     component: RankingList
+  },
+  {
+    path: "/loginpage",
+    component: () => import("views/login/LoginRegister")
   }
 ];
 

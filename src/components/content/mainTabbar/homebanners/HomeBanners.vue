@@ -87,7 +87,7 @@ export default {
   padding: 12px 6px;
 }
 .el-carousel__arrow {
-  width:2.2rem ;
+  width: 2.2rem;
   height: 7rem;
   border-radius: 2rem;
   background-color: rgba(31, 45, 61, 0.29);

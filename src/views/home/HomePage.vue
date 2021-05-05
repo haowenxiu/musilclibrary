@@ -1,7 +1,8 @@
 <template>
   <div class="mainContent">
     <el-tabs v-model="activeName"
-             @tab-click="handleClick">
+             @tab-click="handleClick"
+             class="homepagetitle">
       <el-tab-pane label="个性化推荐"
                    name="first">
         <home-banners></home-banners>
@@ -40,31 +41,31 @@ export default {
   display: flex;
   justify-content: center;
 }
+
 .el-tabs__active-bar {
   background-color: red;
   margin-left: 2rem;
+}
+.el-tabs__item.is-active {
+  /* color: red; */
+  color: red;
+
+  /* transform: all 1.5s; */
 }
 .el-tabs__item {
   font-size: 1.5rem;
   font-weight: 400;
 }
+
 .el-tabs__item:hover {
   color: black;
-  /* font-size: 1.6rem; */
-  font-weight: 500;
 }
+
 .el-tabs__nav {
   padding-left: 2rem;
 }
-.el-tabs__item.is-active {
-  /* color: red; */
-  color: black;
-  font-weight: 500;
-  font-size: 2rem;
-  /* transform: all 1.5s; */
-}
+
 .el-tabs__item.is-active:visited {
-  color: rgb(72, 9, 219);
-  transform: scale(2);
+  color: red;
 }
 </style>
