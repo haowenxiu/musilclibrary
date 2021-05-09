@@ -3,16 +3,19 @@ import App from "./App.vue";
 import router from "./router";
 import ElementUI from "element-ui";
 import VueLazyLoad from "vue-lazyload";
-
+import Api from "network/api";
+import store from "./store";
 // import "element-ui/lib/theme-chalk/index.css";
-import "../theme/index.css"
+import "../theme/index.css";
 
 Vue.use(ElementUI);
 Vue.use(VueLazyLoad);
 
 Vue.config.productionTip = false;
+Vue.prototype.$api = Api;
 
 new Vue({
   render: h => h(App),
-  router
+  router,
+  store
 }).$mount("#app");

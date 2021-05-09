@@ -1,14 +1,15 @@
 /* 导航栏用户中心 */
 <template>
   <div class="mycenter">
-    <div style="display:none">
-      <click-router class="portrait"
-                    path="/UserCenter">
-        <div class="loginbtn">
-          <img :src="userimg"
-               alt="">
-        </div>
-      </click-router>
+    <div>
+      <!-- <click-router class="portrait"
+                    path="/UserCenter"> -->
+      <div class="loginbtn portrait"
+           @click="userImgBtn">
+        <img :src="userimg"
+             alt="">
+      </div>
+      <!-- </click-router> -->
       <div class="popup-message">
         <el-popover placement="top"
                     width="300"
@@ -23,7 +24,7 @@
         </el-popover>
       </div>
     </div>
-    <login-modal-layer />
+    <login-modal-layer style="display:none" />
   </div>
 
 </template>
@@ -32,6 +33,7 @@
 import ClickRouter from 'comp/common/clickrouter/ClickRouter'
 import UserCenter from 'comp/common/pop-up/UserCenter.vue'
 import LoginModalLayer from './loginmodallayer/LoginModalLayer'
+import changePhotoToBase64 from 'common/phototobase64/Base64'
 
 export default {
   name: 'NavLogin',
@@ -42,18 +44,54 @@ export default {
   },
   data() {
     return {
+      isahow: false,
       username: '登录',
       userimg: require('assets/img/portrait/login_before.png'),
+      // userimg: '/userpic/1552354056660L1.jpg'
+      // userimg: require('http://127.0.0.1/img/userpic/1552354056660L1.jpg')
     }
   },
   methods: {
     itemClick(path) {
-      // console.log(path)
       this.$router.push(path)
     },
-    open() {
-      this.$prompt()
+    // open() {
+    // this.$prompt()
+    // },
+    userImgBtn() {
+      const userinfo = JSON.parse(localStorage.getItem('userInfo'))
+      if (userinfo != null) {
+        this.$router.push('/UserCenter')
+      } else {
+        this.$router.push('/loginpage')
+      }
+      console.log(userinfo)
     },
+
+    showUserInfo() {
+      console.log(this.$store)
+      // const userinfo = this.$store.state.userInfo
+      const userinfo = JSON.parse(localStorage.getItem('userInfo'))
+      console.log(userinfo.headphoto);
+      const token = localStorage.getItem('token')
+      const userHeadImg = userinfo.headphoto
+      this.username = userinfo.name ? userinfo.name : this.username
+      if (userHeadImg != null) {
+        // console.log(this.$store.state.imghead+userHeadImg)
+        this.userimg = this.$store.state.imghead + userHeadImg
+        console.log(this.userimg);
+      }
+      // changePhotoToBase64(userinfo.headphoto)
+      if (userinfo == null && token == null) {
+        this.$router.push('/loginpage')
+      }
+    },
+  },
+  created() {
+    // this.showinfo()
+  },
+  mounted() {
+    this.showUserInfo()
   },
 }
 </script>

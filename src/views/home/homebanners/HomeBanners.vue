@@ -18,7 +18,8 @@
 </template>
 
 <script>
-import { banners } from '@/network/api'
+import axios from 'axios'
+// import { banners } from '@/network/api'
 export default {
   name: 'HomeBanners',
   created() {
@@ -33,7 +34,7 @@ export default {
   methods: {
     onLoad() {
       const that = this
-      banners().then((res) => {
+      /* this.$api.banners().then((res) => {
         const banner = res.data.blocks[0].extInfo.banners
         console.log(banner)
         banner.forEach((data, index) => {
@@ -42,7 +43,22 @@ export default {
             bannersImg: data.pic,
           })
         })
-      })
+      }) */
+      axios
+        .get('https://autumnfish.cn/homepage/block/page')
+        .then((res) => {
+          const banner = res.data.data.blocks[0].extInfo.banners
+          console.log(banner)
+          banner.forEach((data, index) => {
+            this.banners.push({
+              bannersId: data.bannerId,
+              bannersImg: data.pic,
+            })
+          })
+        })
+        .catch((err) => {
+          console.error(err)
+        })
     },
     clickdata() {
       console.log(this.banners)

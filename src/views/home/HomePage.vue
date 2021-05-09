@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import HomeBanners from '../../components/content/mainTabbar/homebanners/HomeBanners.vue'
+import HomeBanners from './homebanners/HomeBanners'
 export default {
   components: { HomeBanners },
   name: 'Home',

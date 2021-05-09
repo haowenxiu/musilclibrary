@@ -5,17 +5,17 @@
              ref="ruleForm"
              class="demo-ruleForm elform"
              label-position="right">
-      <el-form-item prop="user1">
+      <el-form-item prop="userName">
         <el-input type="text"
                   placeholder="用户名"
                   required="required"
-                  v-model="ruleForm.user1"
+                  v-model="ruleForm.userName"
                   prefix-icon="el-icon-user-solid"></el-input>
       </el-form-item>
-      <el-form-item prop="pass1">
+      <el-form-item prop="tel_email">
         <el-input class="phone-input"
                   placeholder="手机号/邮箱"
-                  v-model="ruleForm.pass1"
+                  v-model="ruleForm.tel_email"
                   prefix-icon="el-icon-mobile-phone"></el-input>
       </el-form-item>
       <el-form-item prop="code"
@@ -34,10 +34,10 @@
                 class="count">{{ count }} s</span>
         </el-button>
       </el-form-item>
-      <el-form-item prop="pass">
+      <el-form-item prop="userPassword">
         <el-input type="password"
                   placeholder="请输入密码"
-                  v-model="ruleForm.pass"
+                  v-model="ruleForm.userPassword"
                   prefix-icon="el-icon-lock"></el-input>
       </el-form-item>
       <el-form-item prop="checkPass">
@@ -115,7 +115,7 @@ export default {
     var validatePass2 = (rule, value, callback) => {
       if (value === '') {
         callback(new Error('请再次输入密码'))
-      } else if (value !== this.ruleForm.pass) {
+      } else if (value !== this.ruleForm.userPassword) {
         callback(new Error('两次输入密码不一致!'))
       } else {
         callback()
@@ -133,9 +133,9 @@ export default {
       timer: null,
       yzmshow: false,
       ruleForm: {
-        user1: '',
-        pass1: '',
-        pass: '',
+        userName: '',
+        tel_email: '',
+        userPassword: '',
         checkPass: '',
         zhecode: '',
         mobile: '',
@@ -201,6 +201,55 @@ export default {
     }
   },
   methods: {
+    /*     submitForm(ruleForm) {
+      this.$refs[ruleForm].validate((valid) => {
+      if (valid) {
+        const that = this.ruleForm
+        console.log(
+          that.userName +
+            ' ' +
+            that.tel_email +
+            ' ' +
+            that.userPassword +
+            ' ' +
+            that.checkPass +
+            ' ' +
+            that.mobile +
+            ' '
+        )
+        // console.log('username : ' + that.user)
+      } else {
+        console.log('error submit!!')
+        return false
+      }
+    },
+    resetForm(formName) {
+      this.$refs[formName].resetFields()
+    },
+    } */
+    submitForm(ruleForm) {
+      console.log(this.$refs[ruleForm].validate())
+      // this.$refs[ruleForm].validate((valid) => {
+      //   if (valid) {
+      const that = this.ruleForm
+      console.log(
+        that.userName +
+          ' ' +
+          that.tel_email +
+          ' ' +
+          that.userPassword +
+          ' ' +
+          that.checkPass +
+          ' ' +
+          that.mobile +
+          ' '
+      )
+      //   } else {
+      //     console.log('error submit!!')
+      //     return false
+      //   }
+      // })
+    },
     resetForm(formName) {
       this.$refs[formName].resetFields()
     },
