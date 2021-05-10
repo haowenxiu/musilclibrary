@@ -43,6 +43,7 @@ router.beforeEach((to, from, next) => {
   // router.app.$store.state.isLogin;
   console.log(router.app.$options.store.state);
   const local = router.app.$options.store.state;
+  console.log(local.token);
   if (to.meta.requireAuth) {
     if (local.token !== null && local.token !== "") {
       next();
