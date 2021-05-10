@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- <navigation></navigation> -->
-    <navigation-tab-bar></navigation-tab-bar>
+    <navigation-tab-bar v-if="isRouterAlive"></navigation-tab-bar>
   </div>
 </template>
 
@@ -12,6 +12,24 @@ export default {
   name: 'App',
   components: {
     NavigationTabBar,
+  },
+  provide() {
+    return {
+      reload: this.reload,
+    }
+  },
+  data() {
+    return {
+      isRouterAlive: true,
+    }
+  },
+  methods: {
+    reload() {
+      this.isRouterAlive = false
+      this.$nextTick(function () {
+        this.isRouterAlive = true
+      })
+    },
   },
 }
 </script>

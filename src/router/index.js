@@ -2,12 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
-
-const HomePage = () => import("views/home/HomePage.vue"); //主页面
-const UserCenter = () => import("views/usercenter/UserCenter"); //用户中心
-const DynamicPark = () => import("views/musiclife/dynamic/DynamicPark"); //动态乐园
-const RankingList = () => import("views/musiclife/rankinglist/RankingList"); //音乐排行榜
-
+const that = this;
 const routes = [
   {
     path: "",
@@ -15,23 +10,26 @@ const routes = [
   },
   {
     path: "/homePage",
-    component: HomePage
+    component: () => import("views/home/HomePage.vue") //主页面
   },
   {
     path: "/usercenter",
-    component: UserCenter
+    component: () => import("views/usercenter/UserCenter"), //主页面
+    meta: {
+      requireAuth: true
+    }
   },
   {
     path: "/DynamicPark",
-    component: DynamicPark
+    component: () => import("views/musiclife/dynamic/DynamicPark") //用户中心
   },
   {
     path: "/RankingList",
-    component: RankingList
+    component: () => import("views/musiclife/rankinglist/RankingList") //动态乐园
   },
   {
     path: "/loginpage",
-    component: () => import("views/login/LoginRegister")
+    component: () => import("views/login/LoginRegister") //音乐排行榜
   }
 ];
 
@@ -39,6 +37,24 @@ const router = new VueRouter({
   routes,
   mode: "history",
   linkActiveClass: "link-active"
+});
+
+router.beforeEach((to, from, next) => {
+  // router.app.$store.state.isLogin;
+  console.log(router.app.$options.store.state);
+  const local = router.app.$options.store.state;
+  if (to.meta.requireAuth) {
+    if (local.token !== null && local.token !== "") {
+      next();
+    } else {
+      next({
+        path: "/loginpage",
+        query: { redirect: to.fullPath }
+      });
+    }
+  } else {
+    next();
+  }
 });
 
 export default router;

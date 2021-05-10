@@ -20,6 +20,7 @@
 
 <script>
 export default {
+  inject: ['reload'],
   naem: 'CenterRowItem',
   props: {
     path: String,
@@ -41,7 +42,16 @@ export default {
       }
     },
     quirtLogin() {
-      console.log('退出登录成功')
+      const userinfo = this.$store.state
+      console.log(userinfo)
+      if (userinfo.token != null) {
+        this.$store.dispatch('clearUserInfo')
+        // location.reload();
+        // this.reload()
+        this.$router.go(0)
+      } else {
+        this.$router.push('/loginpage')
+      }
     },
   },
 }

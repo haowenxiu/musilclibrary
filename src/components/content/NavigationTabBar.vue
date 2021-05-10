@@ -50,7 +50,7 @@ export default {
   /* flex-direction: row; */
 }
 .left-content {
-  /* height: 50%; */
+  /* height: 100%; */
   padding-top: 1.5rem;
   border-right: 0.1rem solid #b5b9be;
   height: 90vh;

@@ -6,10 +6,7 @@
         <i class="iconfont icon-guanji"></i>
       </template>
       <template v-slot:center-text>
-        {{message}}
-      </template>
-      <template v-slot:user-related>
-        Lv.9
+        {{messageChange}}
       </template>
     </center-row-item>
   </center-row>
@@ -26,6 +23,21 @@ export default {
     return {
       message: '退出登录',
     }
+  },
+  computed: {
+    messageChange() {
+      const userinfo = this.$store.state
+      // this.$store.state.userInfo
+      console.log(userinfo)
+      if (userinfo.token === null || userinfo.token === '') {
+        console.log('token为空了')
+        return '请登录'
+      }else{
+        console.log('token不为空了')
+        return this.message
+      }
+      
+    },
   },
 }
 </script>

@@ -15,7 +15,7 @@
                     width="300"
                     trigger="click"
                     visible-arrow='false'>
-          <user-center></user-center>
+          <user-center style=""></user-center>
           <button slot="reference"
                   class="personal">
             <span>{{username}}</span>
@@ -33,8 +33,6 @@
 import ClickRouter from 'comp/common/clickrouter/ClickRouter'
 import UserCenter from 'comp/common/pop-up/UserCenter.vue'
 import LoginModalLayer from './loginmodallayer/LoginModalLayer'
-import changePhotoToBase64 from 'common/phototobase64/Base64'
-
 export default {
   name: 'NavLogin',
   components: {
@@ -45,10 +43,8 @@ export default {
   data() {
     return {
       isahow: false,
-      username: '登录',
+      username: '',
       userimg: require('assets/img/portrait/login_before.png'),
-      // userimg: '/userpic/1552354056660L1.jpg'
-      // userimg: require('http://127.0.0.1/img/userpic/1552354056660L1.jpg')
     }
   },
   methods: {
@@ -59,36 +55,35 @@ export default {
     // this.$prompt()
     // },
     userImgBtn() {
-      const userinfo = JSON.parse(localStorage.getItem('userInfo'))
-      if (userinfo != null) {
+      const userinfo = this.$store.state.userInfo
+      console.log(userinfo)
+      const token = this.$store.state.token
+      if (token !== null && token !== '') {
         this.$router.push('/UserCenter')
       } else {
         this.$router.push('/loginpage')
       }
-      console.log(userinfo)
+      console.log(token)
     },
 
     showUserInfo() {
       console.log(this.$store)
       // const userinfo = this.$store.state.userInfo
-      const userinfo = JSON.parse(localStorage.getItem('userInfo'))
-      console.log(userinfo.headphoto);
-      const token = localStorage.getItem('token')
+      const userinfo = this.$store.state.userInfo
+      console.log(userinfo.headphoto)
+      const token = this.$store.state.token
       const userHeadImg = userinfo.headphoto
       this.username = userinfo.name ? userinfo.name : this.username
       if (userHeadImg != null) {
         // console.log(this.$store.state.imghead+userHeadImg)
         this.userimg = this.$store.state.imghead + userHeadImg
-        console.log(this.userimg);
+        console.log(this.userimg)
       }
       // changePhotoToBase64(userinfo.headphoto)
       if (userinfo == null && token == null) {
         this.$router.push('/loginpage')
       }
     },
-  },
-  created() {
-    // this.showinfo()
   },
   mounted() {
     this.showUserInfo()

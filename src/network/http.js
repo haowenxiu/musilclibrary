@@ -61,14 +61,7 @@ axios.interceptors.request.use(
 const that = this;
 axios.interceptors.response.use(
   response => {
-    const token = response.data.accesstoken;
-    // console.log(token);
-    if (token != null && token != "") {
-      localStorage.setItem("token", token);
-      return response;
-    }
     return response;
-    // this.$store.dispatch("saveUserInfo", response.data.data);
   },
   error => {
     // Do something with response error

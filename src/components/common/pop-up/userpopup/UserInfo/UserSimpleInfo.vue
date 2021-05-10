@@ -3,7 +3,6 @@
     <social-data>
 
       <template>
-
         <social-data-item path='/dynamicState'>
           <template v-slot:Social-Data-Item-num>
             <span>8</span>
@@ -12,7 +11,6 @@
             <span>动态</span>
           </template>
         </social-data-item>
-
       </template>
 
       <template>
@@ -37,7 +35,7 @@
       </template>
     </social-data>
     <div class="basicinfo-btn">
-      <click-router path='/personalCenter'>
+      <click-router path='/UserCenter'>
         <button><span>个人中心</span></button>
       </click-router>
     </div>
