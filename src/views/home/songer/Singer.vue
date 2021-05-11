@@ -5,7 +5,7 @@
       <singer-item v-for="(item,index) in singer"
                    :key="index">
         <template #SingerImg>
-          <img :src="item.pic"
+          <img v-lazy="item.pic"
                :alt="item.singername"
                :data-id="item.id "
                @click="singerDetail(item.id)">
@@ -30,6 +30,7 @@ export default {
   data() {
     return {
       singer: [],
+      paramssinger: {},
     }
   },
   methods: {
@@ -50,10 +51,15 @@ export default {
         })
     },
     singerDetail(singerid) {
-      console.log('歌手细节1111 : ' + singerid)
-      this.$router.push({
-        path: '/singerdetail/'+singerid,
+      this.singer.forEach((item, index) => {
+        if (singerid === item.id) {
+          this.paramssinger = item
+          this.$router.push({
+            path: '/singerdetail/' + encodeURIComponent(JSON.stringify(item)),
+          })
+        }
       })
+      console.log('歌手细节1111 : ' + singerid)
     },
   },
 }

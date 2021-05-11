@@ -44,21 +44,21 @@ export default {
           })
         })
       }) */
-      axios
-        .get('https://autumnfish.cn/homepage/block/page')
-        .then((res) => {
-          const banner = res.data.data.blocks[0].extInfo.banners
-          console.log(banner)
-          banner.forEach((data, index) => {
-            this.banners.push({
-              bannersId: data.bannerId,
-              bannersImg: data.pic,
-            })
-          })
-        })
-        .catch((err) => {
-          console.error(err)
-        })
+      // axios
+      //   .get('https://autumnfish.cn/homepage/block/page')
+      //   .then((res) => {
+      //     const banner = res.data.data.blocks[0].extInfo.banners
+      //     console.log(banner)
+      //     banner.forEach((data, index) => {
+      //       this.banners.push({
+      //         bannersId: data.bannerId,
+      //         bannersImg: data.pic,
+      //       })
+      //     })
+      //   })
+      //   .catch((err) => {
+      //     console.error(err)
+      //   })
     },
     clickdata() {
       console.log(this.banners)

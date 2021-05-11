@@ -15,7 +15,7 @@ const register = p => post("/user/login", p);
 // 歌手列表
 const singerList = () => get("/singer/getsinger");
 // 歌手信息
-const singerdetail = p => get("/singer/getsinger", p);
+const singerdetail = p => get("/singer/singerdetail", p);
 export default {
   banners,
   login,

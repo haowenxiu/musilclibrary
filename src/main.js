@@ -1,16 +1,16 @@
 import Vue from "vue";
+import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import ElementUI from "element-ui";
 import VueLazyLoad from "vue-lazyload";
 import Api from "network/api";
 import store from "./store";
-// import "element-ui/lib/theme-chalk/index.css";
+import "element-ui/lib/theme-chalk/index.css";
 import "../theme/index.css";
 
 Vue.use(ElementUI);
 Vue.use(VueLazyLoad);
-
 Vue.config.productionTip = false;
 Vue.prototype.$api = Api;
 

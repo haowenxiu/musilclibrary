@@ -3,7 +3,7 @@ import axios from "axios"; //引入axios
 // import { reject, resolve } from "core-js/fn/promise";
 import QS from "qs"; //引入qs模块，用来序列化post类型的数据
 // import { Toast } from "vant"; //
-
+const USER_KEY = "hm-toutiao-m-user";
 /* 环境的切换 */
 if (process.env.NODE_ENV == "development") {
   //如果是开发环境下  http://localhost/Music_Library
@@ -39,16 +39,13 @@ axios.defaults.transformRequest = params => QS.stringify(params);
  */
 axios.interceptors.request.use(
   config => {
-    // let accesstoken = localStorage.getItem("accesstoken");
-    // let refreshtoken = localStorage.getItem("refreshtoken");
-    // console.log(accesstoken);
-    // console.log(refreshtoken);
-    // axios.defaults.headers("accesstoken", accesstoken);
-    // axios.defaults.headers("refreshtoken", refreshtoken);
+    let token = JSON.parse(localStorage.getItem(USER_KEY)).token;
+    if (token) {
+      config.headers["token"] =token;
+    }
     return config;
   },
   error => {
-    // Do something with request error
     return Promise.reject(error);
   }
 );
