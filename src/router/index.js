@@ -30,6 +30,10 @@ const routes = [
   {
     path: "/loginpage",
     component: () => import("views/login/LoginRegister") //音乐排行榜
+  },
+  {
+    path: "/singerdetail/:singerid",
+    component: () => import("views/home/songer/singerdetail/SingerDetail")
   }
 ];
 

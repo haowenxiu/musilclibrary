@@ -13,7 +13,7 @@
                    name="third">排行榜</el-tab-pane>
       <el-tab-pane label="歌手"
                    name="fourth">
-        <songer></songer>
+        <singer></singer>
       </el-tab-pane>
     </el-tabs>
   </div>
@@ -21,9 +21,9 @@
 
 <script>
 import HomeBanners from './homebanners/HomeBanners'
-import Songer from './songer/Songer.vue'
+import Singer from './songer/Singer.vue'
 export default {
-  components: { HomeBanners, Songer },
+  components: { HomeBanners, Singer },
   data() {
     return { activeName: 'first' }
   },

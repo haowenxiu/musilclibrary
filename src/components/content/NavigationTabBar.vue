@@ -47,6 +47,7 @@ export default {
   border-top: 1px solid rgb(110, 109, 134);
   display: grid;
   grid-template-columns: 26rem auto;
+  
   /* flex-direction: row; */
 }
 .left-content {
@@ -55,6 +56,7 @@ export default {
   border-right: 0.1rem solid #b5b9be;
   height: 90vh;
   overflow-y: scroll;
+  
 }
 .left-content:hover {
   overflow-y: scroll;
