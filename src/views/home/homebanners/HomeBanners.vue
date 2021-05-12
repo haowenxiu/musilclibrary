@@ -1,19 +1,24 @@
 <template>
   <div class="banners">
-    <el-carousel :interval="400000"
+    <el-carousel :interval="3000"
                  type="card"
-                 height="230px">
+                 height="250px">
       <el-carousel-item v-for="item in banners"
-                        :key="item.bannersImg">
+                        :key="item.bannerid">
         <!-- <h3 class="medium">{{ item.bannersImg }}</h3> -->
-        <img v-lazy="item.bannersImg"
-             :key="item.bannersImg"
-             :alt="item.bannersId"
-             :data-id="item.bannersId"
+        <img v-lazy="item.bannerpic"
+             :key="item.bannerpic"
+             :alt="item.songid"
+             :data-id="item.songid"
              class="medium">
       </el-carousel-item>
     </el-carousel>
     <button @click="clickdata">获取</button>
+    <div class="auto">
+      <audio controls
+             preload="auto"
+             src="http://127.0.0.1/music/song/%E5%BC%A0%E6%9D%B0%20-%20%E7%88%B1,%E4%B8%8D%E8%A7%A3%E9%87%8A%20(Live).mp3"></audio>
+    </div>
   </div>
 </template>
 
@@ -34,31 +39,15 @@ export default {
   methods: {
     onLoad() {
       const that = this
-      /* this.$api.banners().then((res) => {
-        const banner = res.data.blocks[0].extInfo.banners
-        console.log(banner)
+      this.$api.banners().then((res) => {
+        const banner = res.data.extend.info
         banner.forEach((data, index) => {
-          this.banners.push({
-            bannersId: data.bannerId,
-            bannersImg: data.pic,
-          })
+          data.bannerpic = this.$store.state.imghead + data.bannerpic
         })
-      }) */
-      // axios
-      //   .get('https://autumnfish.cn/homepage/block/page')
-      //   .then((res) => {
-      //     const banner = res.data.data.blocks[0].extInfo.banners
-      //     console.log(banner)
-      //     banner.forEach((data, index) => {
-      //       this.banners.push({
-      //         bannersId: data.bannerId,
-      //         bannersImg: data.pic,
-      //       })
-      //     })
-      //   })
-      //   .catch((err) => {
-      //     console.error(err)
-      //   })
+        this.banners = banner
+        console.log(this.banners)
+        console.log(banner)
+      })
     },
     clickdata() {
       console.log(this.banners)
@@ -68,6 +57,11 @@ export default {
 </script>
 
 <style>
+.auto audio {
+  width: 50rem;
+  height: 5rem;
+}
+
 .banners {
   width: 90%;
 }

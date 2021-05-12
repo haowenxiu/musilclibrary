@@ -1,22 +1,17 @@
 <template>
   <div class="head">
     <div class="head-img">
-      <!-- <img src="../../assets/img/songerimg/yuner01.jpg"
-           alt=""> -->
       <slot name="Singer-Pic"></slot>
     </div>
     <div class="head-content">
       <div class="detail-left">
         <div class="head-text singer-name">
-          <!-- <span>林允儿</span> -->
           <slot name="Singer-Name"></slot>
         </div>
         <div class="head-text singer-nickname">
-          <!-- <span>允儿</span> -->
           <slot name="Singer-Nickname"></slot>
         </div>
         <div class="head-text singer-location">
-          <!-- <span>青海西宁</span> -->
           <slot name="Singer-Location"></slot>
         </div>
         <div class="head-text detail-info">
@@ -31,8 +26,6 @@
       <div class="detail-right">
         <span>歌手简介 :</span>
         <div class="singer-intro">
-          <!-- <p>"华语歌坛新生代领军人物，偶像与实力兼具的超人气天王。2004年出道至今，已发行9张高品质唱片，唱片销量称冠内地群雄。2008年以来举办过9场爆满的个人演唱会，在各大权威音乐奖项中先后21次获得“最受欢迎男歌手”称号，2012年度中国TOP排行榜内地最佳男歌手，2010年在韩国M-net亚洲音乐大赏(MAMA)上获得“亚洲之星”（Best Asian
-            Artist）大奖，影响力触及海外。啊实打实的阿斯顿阿萨大苏打阿萨大苏打撒旦青蛙大十大实打实打算大苏打撒旦啊苏打阿斯顿阿斯顿阿斯顿阿萨 阿斯顿阿斯达萨达苏打苏打"</p> -->
           <slot name="Singer-Intro"></slot>
         </div>
       </div>
@@ -104,9 +97,9 @@ export default {}
   align-items: center;
   font-size: 2rem;
 }
-.singer-intro {
-  /* background-color: #f0f; */
-}
+/* .singer-intro {
+  background-color: #f0f;
+} */
 .detail-right p {
   height: 100%;
   padding: 1.5rem 0.5rem;

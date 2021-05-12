@@ -6,6 +6,7 @@
       <nav-menu class="left-content"></nav-menu>
       <router-view class="right-content"></router-view>
     </div>
+    <play-music></play-music>
     <page-footer class="footer"></page-footer>
   </div>
 </template>
@@ -14,6 +15,7 @@
 import Navigation from 'content/navigation/Navigation.vue'
 import NavMenu from './navmenu/NavMenu.vue'
 import PageFooter from './footer/Footer.vue'
+import PlayMusic from './playmusic/PlayMusic.vue'
 
 export default {
   name: 'App',
@@ -21,6 +23,7 @@ export default {
     Navigation,
     NavMenu,
     PageFooter,
+    PlayMusic,
   },
 }
 </script>
@@ -47,7 +50,7 @@ export default {
   border-top: 1px solid rgb(110, 109, 134);
   display: grid;
   grid-template-columns: 26rem auto;
-  
+
   /* flex-direction: row; */
 }
 .left-content {
@@ -56,7 +59,6 @@ export default {
   border-right: 0.1rem solid #b5b9be;
   height: 90vh;
   overflow-y: scroll;
-  
 }
 .left-content:hover {
   overflow-y: scroll;

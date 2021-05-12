@@ -13,6 +13,7 @@ Vue.use(ElementUI);
 Vue.use(VueLazyLoad);
 Vue.config.productionTip = false;
 Vue.prototype.$api = Api;
+// Vue.prototype.$EventBus = new Vue();
 
 new Vue({
   render: h => h(App),

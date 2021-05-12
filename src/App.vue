@@ -23,6 +23,14 @@ export default {
       isRouterAlive: true,
     }
   },
+  mounted() {
+    // 刷新后跳转到首页面
+    this.$router.push('/')
+    //刷新后回到顶部
+    window.addEventListener('beforeunload', (e) => {
+      window.scroll(0, 0)
+    })
+  },
   methods: {
     reload() {
       this.isRouterAlive = false
