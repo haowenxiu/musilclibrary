@@ -36,7 +36,7 @@
 // import login from '@/network/api'
 import axios from 'axios'
 export default {
-  inject:['reload'],
+  inject: ['reload'],
   name: 'Login',
   data() {
     var validatePass = (rule, value, callback) => {
@@ -89,14 +89,15 @@ export default {
               password: that.pass,
             })
             .then((res) => {
-              console.log(res.data.accesstoken)
+              console.log(res.data.locationname)
               this.$store.dispatch('saveUserInfo', res.data.extend.message)
               // localStorage.setItem('userInfo',JSON.stringify(res.data.extend.message))
               this.$store.dispatch('saveToken', res.data.accesstoken)
+              this.$store.dispatch('locationname', res.data.locationname)
               // console.log(this.$store.state.userInfo)
               // this.$router.replace('/homePage')
               // location.reload()
-              this.reload();
+              this.reload()
               this.$router.go(-1)
             })
             .catch((err) => {

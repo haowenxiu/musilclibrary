@@ -30,13 +30,14 @@ export default {
   },
   data() {
     return {
-      songinfo: {},
+      songinfo: [],
     }
   },
   methods: {
     toplaymusic() {
-      console.log('双击了')
-      console.log(this.singdetailinfo)
+      // console.log('双击了')
+      // console.log(this.singdetailinfo)
+      this.$store.dispatch('playsonginfo', this.singdetailinfo)
       EventBus.$emit('songdetailinfo', this.singdetailinfo)
     },
   },

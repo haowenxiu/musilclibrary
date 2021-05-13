@@ -74,7 +74,7 @@ export default {
     onload() {
       const singer = JSON.parse(this.$route.params.singerid)
       this.singerinfo = singer
-      console.log(this.singerinfo)
+      // console.log(this.singerinfo)
       this.$api
         .singerdetail({ singerid: singer.id })
         .then((res) => {
@@ -86,8 +86,8 @@ export default {
             info.songurl = this.$store.state.songhead + item.songurl
             info.singername = this.singerinfo.singername
           })
-          console.log(this.thesingersong)
-          console.log(this.singerinfo)
+          // console.log(this.thesingersong)
+          // console.log(this.singerinfo)
         })
         .catch((err) => {
           console.log(err)
@@ -110,7 +110,7 @@ export default {
   width: 90%;
   height: 20rem;
   margin: 2rem;
-  background-color: #f0f;
+  /* background-color: #f0f; */
 }
 .inline {
   display: inline-block;

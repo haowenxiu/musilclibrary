@@ -6,6 +6,41 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "16280088",
+      "name": "菜单",
+      "font_class": "toggle",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "21589128",
+      "name": "菜单",
+      "font_class": "toggle-copy",
+      "unicode": "eb22",
+      "unicode_decimal": 60194
+    },
+    {
+      "icon_id": "3161288",
+      "name": "图",
+      "font_class": "image",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "999225",
+      "name": "锁",
+      "font_class": "ai243",
+      "unicode": "e6e7",
+      "unicode_decimal": 59111
+    },
+    {
+      "icon_id": "8296675",
+      "name": "关锁",
+      "font_class": "guansuo",
+      "unicode": "e6e9",
+      "unicode_decimal": 59113
+    },
+    {
       "icon_id": "4942665",
       "name": "添加",
       "font_class": "tianjia",

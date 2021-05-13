@@ -2,7 +2,10 @@ import {
   SAVEUSERINFO,
   SAVETOKEN,
   CLEARUSERINFO,
-  GETLOCALSTORAGE
+  LOCATIONNAME,
+  GETLOCALSTORAGE,
+  PLAYSONGINFO,
+  DELETEINPLAYSONGLIST
 } from "./mutations-types";
 
 export default {
@@ -12,7 +15,19 @@ export default {
   saveToken({ commit }, payload) {
     commit(SAVETOKEN, payload);
   },
+  locationname({ commit }, payload) {
+    commit(LOCATIONNAME, payload);
+  },
   clearUserInfo({ commit }) {
     commit(CLEARUSERINFO);
   },
+  locationname({ commit }, payload) {
+    commit(LOCATIONNAME, payload);
+  },
+  playsonginfo({ commit }, payload) {
+    commit(PLAYSONGINFO, payload);
+  },
+  deleteplaysonglist({ commit }, payload) {
+    commit(DELETEINPLAYSONGLIST, payload);
+  }
 };

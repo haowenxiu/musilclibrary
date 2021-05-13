@@ -4,6 +4,8 @@ import axios from "axios"; //引入axios
 import QS from "qs"; //引入qs模块，用来序列化post类型的数据
 // import { Toast } from "vant"; //
 const USER_KEY = "hm-toutiao-m-user";
+
+import { Loading, Message } from "element-ui";
 /* 环境的切换 */
 if (process.env.NODE_ENV == "development") {
   //如果是开发环境下  http://localhost/Music_Library
@@ -31,6 +33,11 @@ axios.defaults.headers.post["Content-Type"] =
   "application/x-www-from-urllencoded:charset=UTF-8";
 axios.defaults.transformRequest = params => QS.stringify(params);
 
+// 加载数据时，打开和关闭动画
+// const loading = {
+
+// }
+
 /**
  * 请求拦截
  * TOKEN校验(JWT):接受服务器返回的token，存储到vuex/本地存储，
@@ -39,10 +46,16 @@ axios.defaults.transformRequest = params => QS.stringify(params);
  */
 axios.interceptors.request.use(
   config => {
-    let token = JSON.parse(localStorage.getItem(USER_KEY)).token;
-    if (token) {
-      config.headers["token"] =token;
-    }
+    // let info = JSON.parse(localStorage.getItem(USER_KEY));
+    // console.log(info);
+    // if (info.userInfo == null || info.userInfo == "") {
+    //   return config;
+    // } else {
+    //   // console.log(info.token);
+    //   config.headers["token"] = info.token;
+    //   config.headers["user"] = info.locationname;
+    //   config.headers["password"] = info.userInfo.password;
+    // }
     return config;
   },
   error => {
@@ -58,6 +71,7 @@ axios.interceptors.request.use(
 const that = this;
 axios.interceptors.response.use(
   response => {
+    console.log(response);
     return response;
   },
   error => {
@@ -94,8 +108,8 @@ axios.interceptors.response.use(
  */
 
 export function get(url, params) {
-  console.log(url);
-  console.log(params);
+  // console.log(url);
+  // console.log(params);
   return new Promise((resolve, reject) => {
     axios
       .get(url, {
