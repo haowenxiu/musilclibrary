@@ -46,11 +46,13 @@ export default {
       console.log(userinfo.token)
       if (userinfo.token === '') {
         this.reload()
+        // this.$forceUpdate()
         this.$router.push('/loginpage')
       } else {
         console.log('token为空')
         this.$store.dispatch('clearUserInfo')
-        location.reload();
+        // this.$forceUpdate()
+        location.reload()
         // this.reload()
         // this.$router.go(0)
       }

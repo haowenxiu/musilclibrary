@@ -17,11 +17,11 @@
       </music-menu-item>
     </click-router>
 
-    <click-router path="/DynamicPark">
+    <!-- <click-router path="/DynamicPark">
       <music-menu-item>
         <template v-slot:menu-text>动态乐园</template>
       </music-menu-item>
-    </click-router>
+    </click-router> -->
   </music-menu-row>
 </template>
 

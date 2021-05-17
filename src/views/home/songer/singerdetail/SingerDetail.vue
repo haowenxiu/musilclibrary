@@ -56,8 +56,8 @@
 <script>
 import DetailHead from 'common/detailinfo/DetailHead.vue'
 import SongRow from 'common/detailinfo/song/SongRow.vue'
-import SongItem from '../../../../common/detailinfo/song/SongItem.vue'
-import SongItemRow from '../../../../common/detailinfo/song/SongItemRow.vue'
+import SongItem from 'common/detailinfo/song/SongItem.vue'
+import SongItemRow from 'common/detailinfo/song/SongItemRow.vue'
 export default {
   components: { DetailHead, SongRow, SongItem, SongItemRow },
 

@@ -12,32 +12,18 @@
           </pack-up-lay-down>
           <!-- </template> -->
         </template>
-        <click-router path="/MusicHall">
-          <music-menu-item>
-            <template v-slot:menu-icon>
-              <span class="iconfont icon-icon-- "></span>
-            </template>
-            <template v-slot:menu-text>欧美抒情</template>
-          </music-menu-item>
-        </click-router>
-
-        <click-router path="/RankingList">
+        <div v-for="(item) in usersonglist"
+             :key="item.id"
+             @click="songlistdetail(item.id)">
           <music-menu-item>
             <template v-slot:menu-icon>
               <span class="iconfont icon-icon--"></span>
             </template>
-            <template v-slot:menu-text>安静</template>
+            <template v-slot:menu-text
+                      :date-id="item.id">{{item.title}}</template>
           </music-menu-item>
-        </click-router>
+        </div>
 
-        <click-router path="/DynamicPark">
-          <music-menu-item>
-            <template v-slot:menu-icon>
-              <span class="iconfont icon-icon--"></span>
-            </template>
-            <template v-slot:menu-text>摇滚</template>
-          </music-menu-item>
-        </click-router>
       </el-collapse-item>
     </el-collapse>
   </music-menu-row>
@@ -58,9 +44,45 @@ export default {
     PackUpLayDown,
     MusicMenuTitle,
   },
-  naem: 'CollectPlaylist',
+  mounted() {
+    this.onload()
+  },
   data() {
-    return { activeNames: ['1'] }
+    return {
+      activeNames: ['1'],
+      usersonglist: [],
+      collectsonglist: [],
+    }
+  },
+  watch: {
+    $store: 'onload',
+  },
+  methods: {
+    onload() {
+      const state = this.$store.state
+      if (state.token !== '' && state.token !== null) {
+        const userid = state.userInfo.userid
+        this.$api.getUserCollectSongList({ userid }).then((res) => {
+          const info = res.data.extend.info
+          info.forEach((item, index) => {
+            item.pic = state.imghead + item.pic
+            this.collectsonglist.push(item.id)
+            this.$store.dispatch('savecollectsonglist', item.id)
+            
+          })
+          this.usersonglist = info
+          console.log(this.collectsonglist)
+        })
+      } else {
+        console.log('token为空')
+        console.log(state)
+      }
+    },
+    songlistdetail(id) {
+      this.$router.push({
+        path: '/songlistdetail/' + id,
+      })
+    },
   },
 }
 </script>

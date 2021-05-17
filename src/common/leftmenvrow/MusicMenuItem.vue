@@ -47,10 +47,15 @@ export default {
   margin-left: 0.5rem;
 }
 .menu-text {
-  font-size: 1.3rem;
+  width: 100%;
+  font-size: 1.2rem;
   padding: 0 1rem;
   color: #484849;
   transition: all 0.5s;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
 .menu-extra span {
   font-size: 1.8rem;

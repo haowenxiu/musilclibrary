@@ -3,9 +3,13 @@ import {
   SAVETOKEN,
   CLEARUSERINFO,
   LOCATIONNAME,
-  GETLOCALSTORAGE,
   PLAYSONGINFO,
-  DELETEINPLAYSONGLIST
+  DELETEINPLAYSONGLIST,
+  SAVECOLLECTSONGLIST,
+  DELETEUSERSONGLISTBYID,
+  SAVEUSERINFOANDPWD,
+  SAVEUSERLIKESONGLISTID,
+  DELETEUSERLIKESONGLISTID
 } from "./mutations-types";
 
 export default {
@@ -29,5 +33,20 @@ export default {
   },
   deleteplaysonglist({ commit }, payload) {
     commit(DELETEINPLAYSONGLIST, payload);
+  },
+  savecollectsonglist({ commit }, payload) {
+    commit(SAVECOLLECTSONGLIST, payload);
+  },
+  deleteusersonglistbyid({ commit }, payload) {
+    commit(DELETEUSERSONGLISTBYID, payload);
+  },
+  saveuserinfoandpwd({ commit }, payload) {
+    commit(SAVEUSERINFOANDPWD, payload);
+  },
+  saveUserLikeSongListId({ commit }, payload) {
+    commit(SAVEUSERLIKESONGLISTID, payload);
+  },
+  deleteUserLikeSongListId({ commit }, payload) {
+    commit(DELETEUSERLIKESONGLISTID, payload);
   }
 };

@@ -13,27 +13,66 @@
              class="medium">
       </el-carousel-item>
     </el-carousel>
-    <button @click="clickdata">获取</button>
-    <div class="auto">
-      <audio controls
-             preload="auto"
-             src="http://127.0.0.1/music/song/%E5%BC%A0%E6%9D%B0%20-%20%E7%88%B1,%E4%B8%8D%E8%A7%A3%E9%87%8A%20(Live).mp3"></audio>
+    <div class="homesonglist">
+      <div class="songlist_title">
+        <span>歌单</span>
+      </div>
+      <div class="tensonglist">
+        <singer-item v-for="(item,index) in tensonglist"
+                     :key="index">
+          <template #SingerImg>
+            <img v-lazy="item.pic"
+                 :alt="item.id"
+                 :data-id="item.id "
+                 @click="homesonglistdetail(item.id)">
+          </template>
+          <template #SingerName>
+            <span @click="homesonglistdetail(item.id)">{{item.title}}</span>
+          </template>
+        </singer-item>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+function random(number) {
+  var arr = []
+  while (arr.length < 10) {
+    //原数组长度为0，每次成功添加一个元素后长度加1，当数组添加最后一个数字之前长度为number即可
+    // var num = Math.floor(Math.random() * 84);   //生成一个0-300的随机整数
+    var num = Math.floor(Math.random() * number)
+    if (arr.length === 0) {
+      //如果数组长度为0则直接添加到arr数组
+      arr.push(num)
+    } else {
+      for (var i = 0; i < arr.length; i++) {
+        //当新生成的数字与数组中的元素不重合时则添加到arr数组
+        if (arr.join(',').indexOf(num) < 0) {
+          arr.push(num)
+        }
+      }
+    }
+  }
+  return arr
+}
 import axios from 'axios'
 // import { banners } from '@/network/api'
+import EventBus from '../../../event-bus'
+import SingerItem from '../songer/singeritem/SingerItem'
 export default {
+  components: { SingerItem },
   name: 'HomeBanners',
   created() {
     this.onLoad()
+    this.getSonglist()
   },
+  mounted() {},
   data() {
     return {
       message: '这里是轮播图',
       banners: [],
+      tensonglist: [],
     }
   },
   methods: {
@@ -45,12 +84,29 @@ export default {
           data.bannerpic = this.$store.state.imghead + data.bannerpic
         })
         this.banners = banner
-        console.log(this.banners)
-        console.log(banner)
       })
     },
-    clickdata() {
-      console.log(this.banners)
+    getSonglist() {
+      this.$api.gethomesonglist().then((res) => {
+        const length = res.data.extend.info.length
+        const songlistinfo = res.data.extend.info
+        this.songlistinfo = songlistinfo
+        var list = random(length)
+        songlistinfo.forEach((item, index) => {
+          songlistinfo[index].pic = this.$store.state.imghead + item.pic
+          for (let i = 0; i < list.length; i++) {
+            if (index === i) {
+              this.tensonglist.push(songlistinfo[list[i]])
+            }
+          }
+        })
+        console.log(this.tensonglist[1].pic)
+      })
+    },
+    homesonglistdetail(id) {
+      this.$router.push({
+        path: '/songlistdetail/' + id,
+      })
     },
   },
 }
@@ -64,6 +120,7 @@ export default {
 
 .banners {
   width: 90%;
+  height: 100%;
 }
 .el-carousel__item h3 {
   color: #475669;
@@ -101,5 +158,26 @@ export default {
   height: 7rem;
   border-radius: 2rem;
   background-color: rgba(31, 45, 61, 0.29);
+}
+.homesonglist {
+  width: 100%;
+  height: 100%;
+  margin: 1rem 0 2rem 0;
+}
+.songlist_title {
+  width: 100%;
+  height: 3rem;
+  line-height: 3rem;
+  margin: 1rem 0;
+}
+.songlist_title span {
+  font-size: 1.7rem;
+  font-weight: bolder;
+}
+.tensonglist {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 </style>

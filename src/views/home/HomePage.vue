@@ -8,11 +8,13 @@
         <home-banners></home-banners>
       </el-tab-pane>
       <el-tab-pane label="歌单"
-                   name="second">歌单</el-tab-pane>
-      <el-tab-pane label="排行榜"
-                   name="third">排行榜</el-tab-pane>
+                   name="second">
+        <song-list></song-list>
+      </el-tab-pane>
+      <!-- <el-tab-pane label="排行榜"
+                   name="third">排行榜</el-tab-pane> -->
       <el-tab-pane label="歌手"
-                   name="fourth">
+                   name="third">
         <singer></singer>
       </el-tab-pane>
     </el-tabs>
@@ -22,8 +24,9 @@
 <script>
 import HomeBanners from './homebanners/HomeBanners'
 import Singer from './songer/Singer.vue'
+import SongList from './songlist/SongList.vue'
 export default {
-  components: { HomeBanners, Singer },
+  components: { HomeBanners, Singer, SongList },
   data() {
     return { activeName: 'first' }
   },

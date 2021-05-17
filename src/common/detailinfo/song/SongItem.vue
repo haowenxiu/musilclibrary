@@ -2,7 +2,7 @@
   <div class="">
     <table class="song-table">
       <tr>
-        <th>id</th>
+        <th></th>
         <th>标题</th>
         <th>歌手</th>
         <th>专辑</th>
@@ -44,10 +44,11 @@ td {
   width: 6%;
 }
 .song-table tr:hover {
-  background-color: rgb(183, 186, 189);
+  background-color: rgb(217, 220, 223);
 }
 .song-table tr td {
   height: 3rem;
+  line-height: 3rem;
   font-size: 1.22rem;
 }
 </style>

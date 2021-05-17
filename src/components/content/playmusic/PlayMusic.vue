@@ -30,7 +30,7 @@
         <div class="showmusiclist">
           <el-popover placement="top"
                       width="350"
-                      trigger="click">
+                      trigger="hover">
             <div class="songlist">
               <div class="list"
                    v-for="(item,index) in reversemusiclist"
@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { EventBus } from '@/event-bus'
+import EventBus from '@/event-bus'
 // 局部引入
 import AudioPlayer from '@liripeng/vue-audio-player'
 import '@liripeng/vue-audio-player/lib/vue-audio-player.css'
@@ -80,6 +80,7 @@ export default {
   },
   mounted() {
     EventBus.$on('songdetailinfo', (info) => {
+      this.$refs.audioPlayer.play()
       this.audioList.unshift(info)
     })
     // this.$refs.audioPlayer.play()
@@ -89,7 +90,7 @@ export default {
       return this.$store.state.playsonginfo
     },
     reversemusiclist() {
-      console.log(this.showlist)
+      // console.log(this.showlist)
       return this.showlist.reverse()
     },
     returnaudioListpic() {
@@ -136,7 +137,7 @@ export default {
     },
     deleteInsonglist(songnum) {
       console.log('要删除的歌曲编号 : ' + songnum)
-      this.$store.dispatch("deleteplaysonglist",songnum)
+      this.$store.dispatch('deleteplaysonglist', songnum)
     },
   },
 }
@@ -145,7 +146,7 @@ export default {
 <style>
 .button-play {
   width: 100%;
-  height: 2rem;
+  height: 1.5rem;
   position: fixed;
   left: 0;
   right: 0;

@@ -2,7 +2,7 @@
 
   <div class="singeritem">
     <div class="singerimg">
-      <slot name="SingerImg"> </slot>
+      <slot name="SingerImg"></slot>
     </div>
     <div class="singername">
       <slot name="SingerName"> </slot>
@@ -54,10 +54,16 @@ export default {
 }
 .singername > span {
   color: black;
+  display: inline-block;
   font-family: 'Times New Roman', Times, serif;
+  height: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
   cursor: pointer;
 }
-.singername > span:hover{
+.singername > span:hover {
   color: rgb(18, 18, 228);
   text-decoration: underline;
 }

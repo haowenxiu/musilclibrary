@@ -31,7 +31,7 @@ axios.defaults.withCredentials = false;
 /* post请求头的设置 */
 axios.defaults.headers.post["Content-Type"] =
   "application/x-www-from-urllencoded:charset=UTF-8";
-axios.defaults.transformRequest = params => QS.stringify(params);
+// axios.defaults.transformRequest = params => QS.stringify(params);
 
 // 加载数据时，打开和关闭动画
 // const loading = {
@@ -56,6 +56,13 @@ axios.interceptors.request.use(
     //   config.headers["user"] = info.locationname;
     //   config.headers["password"] = info.userInfo.password;
     // }
+    // if (config.method == "post") {
+    //   config.headers = {
+    //     "content-type": "application/x-www-form-urlencoded"
+    //   };
+    //   config.data = QS.stringify(config.data);
+    //   console.log(config.data);
+    // }
     return config;
   },
   error => {
@@ -71,31 +78,31 @@ axios.interceptors.request.use(
 const that = this;
 axios.interceptors.response.use(
   response => {
-    console.log(response);
+    // console.log(response);
     return response;
   },
   error => {
     // Do something with response error
-    return Promise.reject(error);
-    // let { response } = error;
-    // if (response) {
-    //   switch (response.status) {
-    //     case 401:
-    //       break;
-    //     case 403:
-    //       localStorage.removeItem("accesstoken");
-    //       localStorage.removeItem("refreshtoken");
-    //       break;
-    //   }
-    //   return Promise.reject(response);
-    // } else {
-    //   // 服务器什么都没有返回
-    //   if (window.navigator.onLine) {
-    //     //断网 : 跳转到断网页面
-    //     return;
-    //   }
-    //   return Promise.reject(error);
-    // }
+    // return Promise.reject(error);
+    let { response } = error;
+    if (response) {
+      switch (response.status) {
+        case 401:
+          break;
+        case 403:
+          localStorage.removeItem("accesstoken");
+          localStorage.removeItem("refreshtoken");
+          break;
+      }
+      return Promise.reject(response);
+    } else {
+      // 服务器什么都没有返回
+      if (window.navigator.onLine) {
+        //断网 : 跳转到断网页面
+        return;
+      }
+      return Promise.reject(error);
+    }
   }
 );
 
@@ -131,11 +138,13 @@ export function get(url, params) {
  *
  */
 export function post(url, params) {
+  // console.log();
+  console.log(params);
   return new Promise((resolve, reject) => {
     axios
-      .post(url, QS.stringify(params))
+      .post(url, params)
       .then(res => {
-        resolve(res.data);
+        resolve(res);
       })
       .catch(err => {
         reject(err);

@@ -23,8 +23,8 @@
                   @keyup.enter.native="toSubmitForm('ruleForm')"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-checkbox v-model="checked"
-                     @change="getValue">记住密码</el-checkbox>
+        <!-- <el-checkbox v-model="checked"
+                     @change="getValue">记住密码</el-checkbox> -->
         <el-button type="primary"
                    @click="submitForm('ruleForm')">登录</el-button>
       </el-form-item>
@@ -65,15 +65,23 @@ export default {
       urlQuery: '',
       activeIndex: '1',
       ruleForm: {
-        pass: '',
-        user: '',
+        pass: this.returnpass,
+        user: this.returnuser,
       },
       rules: {
         user: [{ required: true, validator: validateUser, trigger: 'blur' }],
         pass: [{ required: true, validator: validatePass, trigger: 'blur' }],
       },
-      checked: true,
+      // checked: false,
     }
+  },
+  computed: {
+    returnuser() {
+      return this.$store.state.saveUserInfo.user
+    },
+    returnpass() {
+      return this.$store.state.saveUserInfo.pass
+    },
   },
   methods: {
     submitForm(ruleForm) {
@@ -110,9 +118,16 @@ export default {
         }
       })
     },
-    getValue() {
-      console.log(this.checked)
-    },
+    // getValue() {
+    //   console.log(this.checked)
+    //   const user = this.ruleForm.user
+    //   const pass = this.ruleForm.pass
+    //   if (this.checked) {
+    //     this.$store.dispatch('saveuserinfoandpwd', { user, pass })
+    //   } else {
+    //     this.$store.dispatch('saveuserinfoandpwd', {})
+    //   }
+    // },
   },
 }
 </script>
@@ -126,8 +141,14 @@ export default {
   justify-content: center;
 }
 .el-form-item {
-  padding-right: 5rem;
+  /* padding-right: 5rem; */
+  /* text-align: center; */
   width: 25rem;
+}
+.el-form-item .el-button {
+  width: 100%;
+  height: 4rem;
+  border-radius: 2rem;
 }
 .el-checkbox {
   padding-right: 3rem;

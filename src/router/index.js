@@ -34,6 +34,19 @@ const routes = [
   {
     path: "/singerdetail/:singerid",
     component: () => import("views/home/songer/singerdetail/SingerDetail")
+  },
+  {
+    path: "/songlistdetail/:songlistid",
+    component: () =>
+      import("../views/home/songlist/songlistdetail/SongListDetail.vue")
+  },
+  {
+    path: "/Mylovemusiclist",
+    component: () =>
+      import("../views/usermusicmenu/mylikemusic/MylikeMusic.vue"),
+    meta: {
+      requireAuth: true
+    }
   }
 ];
 
@@ -47,7 +60,7 @@ router.beforeEach((to, from, next) => {
   // router.app.$store.state.isLogin;
   console.log(router.app.$options.store.state);
   const local = router.app.$options.store.state;
-  console.log(local.token);
+  console.log(to);
   if (to.meta.requireAuth) {
     if (local.token !== null && local.token !== "") {
       next();

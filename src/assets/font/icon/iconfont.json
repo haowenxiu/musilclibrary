@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "21639631",
+      "name": "心",
+      "font_class": "xin1-copy",
+      "unicode": "eb23",
+      "unicode_decimal": 60195
+    },
+    {
+      "icon_id": "19726736",
+      "name": "心",
+      "font_class": "xin1",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
       "icon_id": "16280088",
       "name": "菜单",
       "font_class": "toggle",

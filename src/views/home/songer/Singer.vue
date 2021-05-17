@@ -15,6 +15,15 @@
         </template>
       </singer-item>
     </div>
+    <div class="block">
+      <el-pagination @size-change="handleSizeChange"
+                     @current-change="handleCurrentChange"
+                     :current-page.sync="currentPage"
+                     :page-size="pagesize"
+                     layout="prev, pager, next, jumper"
+                     :total="total">
+      </el-pagination>
+    </div>
 
   </div>
 </template>
@@ -24,27 +33,36 @@ import SingerItem from './singeritem/SingerItem.vue'
 
 export default {
   components: { SingerItem },
-  created() {
+  mounted() {
     this.onload()
   },
   data() {
     return {
       singer: [],
       paramssinger: {},
+      currentPage: 1,
+      pagesize: 0,
+      total: 0,
+      pn: 1,
     }
   },
   methods: {
     onload() {
+      console.log('触发')
       this.$api
-        .singerList()
+        .singerList({
+          pn: this.pn,
+        })
         .then((res) => {
           const singerList = res.data.extend.info
-          this.singer = singerList
-          this.singer.forEach((item, index) => {
-            // console.log(this.singer[index])
-            this.singer[index].pic = this.$store.state.imghead + item.pic
+          // console.log(singerList)
+          this.singer = singerList.list
+          this.pagesize = singerList.pagesize
+          this.total = singerList.total
+          this.currentPage = singerList.pageNum
+          singerList.list.forEach((item, index) => {
+            item.pic = this.$store.state.imghead + item.pic
           })
-          // console.log(this.singer)
         })
         .catch((err) => {
           console.log(err)
@@ -59,13 +77,19 @@ export default {
           })
         }
       })
-      console.log('歌手细节1111 : ' + singerid)
+    },
+    handleSizeChange(val) {
+      console.log(`每页 ${val} 条`)
+    },
+    handleCurrentChange(val) {
+      this.pn = val
+      this.onload()
     },
   },
 }
 </script>
 
-<style scoped>
+<style>
 .songer {
   width: 100%;
   height: 100%;
@@ -88,5 +112,9 @@ export default {
   display: inline-block;
   width: 100%;
   height: 100%;
+}
+.block {
+  text-align: end;
+  margin: 1rem 3rem 3rem;
 }
 </style>

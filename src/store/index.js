@@ -15,9 +15,12 @@ const store = new Vuex.Store({
     userInfo: {},
     token: "",
     locationname: "",
+    collectsonglist: [],
     imghead: "http://127.0.0.1/music/pic",
     songhead: "http://127.0.0.1/music",
-    playsonginfo: []
+    playsonginfo: [],
+    saveUserInfo: {},
+    saveUserLikeSongListId: []
   },
   actions,
   getters,

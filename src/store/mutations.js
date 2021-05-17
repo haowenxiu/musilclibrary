@@ -2,10 +2,14 @@ import {
   SAVEUSERINFO,
   SAVETOKEN,
   CLEARUSERINFO,
-  GETLOCALSTORAGE,
   LOCATIONNAME,
   PLAYSONGINFO,
-  DELETEINPLAYSONGLIST
+  DELETEINPLAYSONGLIST,
+  SAVECOLLECTSONGLIST,
+  DELETEUSERSONGLISTBYID,
+  SAVEUSERINFOANDPWD,
+  SAVEUSERLIKESONGLISTID,
+  DELETEUSERLIKESONGLISTID
 } from "./mutations-types";
 export const USER_KEY = "hm-toutiao-m-user";
 export default {
@@ -18,8 +22,9 @@ export default {
   [CLEARUSERINFO](state) {
     state.userInfo = {};
     state.token = "";
-    localStorage.removeItem(USER_KEY).userInfo;
-    localStorage.removeItem(USER_KEY).token;
+    state.collectsonglist = [];
+    state.saveUserLikeSongListId = [];
+    // state.saveUserInfo = {};
   },
   [LOCATIONNAME](state, payload) {
     state.locationname = payload;
@@ -37,14 +42,61 @@ export default {
     }
   },
   [DELETEINPLAYSONGLIST](state, payload) {
+    console.log("要删除的歌曲编号 : " + payload);
+    const songinfo = state.playsonginfo.length;
+    for (let i = 0; i < songinfo; i++) {
+      console.log("歌曲编号：：" + state.playsonginfo[i].songnum);
+      console.log(i);
+      if (state.playsonginfo[i].songnum === payload) {
+        console.log(
+          "要删除的歌曲编号 : " + i + " " + state.playsonginfo[i].songnum
+        );
+        state.playsonginfo.splice(i, 1);
+      }
+    }
+  },
+  [SAVECOLLECTSONGLIST](state, payload) {
+    // state.collectsonglist.push(payload);
+    const length = state.collectsonglist;
+    if (state.collectsonglist.indexOf(payload) < 0) {
+      console.log("不存在");
+      state.collectsonglist.push(payload);
+    } else {
+      console.log("存在");
+    }
+  },
+  [DELETEUSERSONGLISTBYID](state, payload) {
+    console.log("要删除的id：" + payload);
+    const info = state.collectsonglist;
+    info.forEach((item, index) => {
+      if (item === payload) {
+        console.log("youxiangtong");
+        state.collectsonglist.splice(index, 1);
+      }
+    });
+  },
+  [SAVEUSERINFOANDPWD](state, payload) {
     console.log(payload);
-    const songinfo = state.playsonginfo;
-    songinfo.forEach((item, index) => {
-      console.log(item.songnum);
-      console.log(index);
-      // if (item[index].songnum == payload) {
-      //   state.playsonginfo.splice(index, 1);
-      // }
+    state.saveUserInfo = payload;
+  },
+  [SAVEUSERLIKESONGLISTID](state, payload) {
+    // state.saveUserLikeSongListId = payload
+    const length = state.saveUserLikeSongListId;
+    if (state.saveUserLikeSongListId.indexOf(payload) < 0) {
+      console.log("不存在");
+      state.saveUserLikeSongListId.push(payload);
+    } else {
+      console.log("存在");
+    }
+  },
+  [DELETEUSERLIKESONGLISTID](state, payload) {
+    console.log("要删除的id：" + payload);
+    const info = state.saveUserLikeSongListId;
+    info.forEach((item, index) => {
+      if (item === payload) {
+        console.log("youxiangtong");
+        state.saveUserLikeSongListId.splice(index, 1);
+      }
     });
   }
 };
