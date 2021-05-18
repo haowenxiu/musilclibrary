@@ -71,7 +71,8 @@ export default {
     singerDetail(singerid) {
       this.singer.forEach((item, index) => {
         if (singerid === item.id) {
-          this.paramssinger = item
+          // this.paramssinger = item
+          console.log(item);
           this.$router.push({
             path: '/singerdetail/' + encodeURIComponent(JSON.stringify(item)),
           })

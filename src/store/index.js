@@ -13,6 +13,7 @@ export const USER_KEY = "hm-toutiao-m-user";
 const store = new Vuex.Store({
   state: {
     userInfo: {},
+    baseUrl: "http://localhost:80",
     token: "",
     locationname: "",
     collectsonglist: [],

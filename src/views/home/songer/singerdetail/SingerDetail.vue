@@ -70,9 +70,17 @@ export default {
       singerinfo: {},
     }
   },
+  watch: {
+    $route: 'onload',
+  },
   methods: {
     onload() {
       const singer = JSON.parse(this.$route.params.singerid)
+      const path = singer.pic
+      singer.pic =
+        this.$store.state.imghead +
+        path.substring(path.lastIndexOf('/', path.lastIndexOf('/') - 2))
+      console.log()
       this.singerinfo = singer
       // console.log(this.singerinfo)
       this.$api

@@ -35,18 +35,24 @@
                         width="400"
                         trigger="click"
                         visible-arrow='false'>
-              <search-pop-up></search-pop-up>
+              <div v-show="show">
+                <div v-show="show">
+                  <search-pop-up :List="list"
+                                 :SearchWords="searchWord"></search-pop-up>
+                </div>
+              </div>
               <input slot="reference"
                      type="text"
                      class="find-input"
-                     placeholder="搜索"
-                     @keydown.enter='search()'>
+                     placeholder="输入歌曲名或者歌手名字进行搜索"
+                     @keyup.enter="search">
             </el-popover>
           </div>
         </div>
       </el-col>
       <!-- 用户中心 -->
-      <el-col :span="7">
+      <el-col :span="
+                     7">
         <div class="grid-content bg-purple login">
           <nav-login></nav-login>
         </div>
@@ -75,12 +81,12 @@ export default {
         disabledbgcolor: 'rgb(220,69,63)',
         bgcolor: '#0ff',
       },
+      list: {},
+      searchWord: '',
+      show: false,
     }
   },
   computed: {
-    // previous(){
-
-    // },
     activeStyleleft() {
       if (window.history.length <= 1) {
         return (this.isback = true)
@@ -98,7 +104,21 @@ export default {
   },
   methods: {
     search(event) {
-      console.log(event.target.value)
+      console.log(event.currentTarget.value)
+      let serch = event.currentTarget.value
+      // console.log(serch)
+      if (serch !== null) {
+        this.searchWord = serch
+        this.show = true
+      } else {
+        this.searchWord = null
+        this.show = true
+      }
+      if (serch !== null && serch !== '') {
+        this.$api.dimSerch({ serch }).then((res) => {
+          this.list = res.data.extend.info
+        })
+      }
     },
     previous() {
       console.log('back' + ' ' + this.isback)

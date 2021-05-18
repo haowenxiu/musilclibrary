@@ -39,6 +39,12 @@ const getsonglist = p => get("/home/songlist", p);
 const gethomesonglist = () => get("/home/homesonglist");
 // 单个歌单信息
 const getsonglistbyid = p => get("home/songlistbyid", p);
+// 首页模糊查询
+const dimSerch = p => get("/home/serch", p);
+
+/* 下载文件 */
+// 下载
+const download = p => get("/singer/download", p);
 
 export default {
   login,
@@ -54,5 +60,7 @@ export default {
   cancelsonglist,
   collectlikesong,
   cancellikesong,
-  getuserlikesonglist 
+  getuserlikesonglist,
+  download,
+  dimSerch
 };

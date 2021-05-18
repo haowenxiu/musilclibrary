@@ -3,16 +3,40 @@
     <td class="likesong">
       <slot name="Song-Id"></slot>
       <span @click="checklikesong">
-        <svg class="icon"
-             aria-hidden="true"
-             v-if="showimg">
-          <use xlink:href="#icon-xin1"></use>
-        </svg>
-        <svg class="icon"
-             aria-hidden="true"
-             v-else>
-          <use xlink:href="#icon-xin1-copy"></use>
-        </svg>
+
+        <el-tooltip content="添加喜欢"
+                    placement="top"
+                    effect="light"
+                    v-if="showimg">
+          <svg class="icon"
+               aria-hidden="true">
+            <use xlink:href="#icon-xin1"></use>
+          </svg>
+        </el-tooltip>
+
+        <el-tooltip content="取消喜欢"
+                    placement="top"
+                    effect="light"
+                    v-else>
+          <svg class="icon"
+               aria-hidden="true">
+            <use xlink:href="#icon-xin1-copy"></use>
+          </svg>
+        </el-tooltip>
+      </span>
+      <span class="download"
+            @click="download">
+        <a :href="baseURL"
+           :download="filename">
+          <el-tooltip content="下载"
+                      placement="top"
+                      effect="light">
+            <svg class="icon"
+                 aria-hidden="true">
+              <use xlink:href="#icon-xiazai"></use>
+            </svg>
+          </el-tooltip>
+        </a>
       </span>
     </td>
     <td>
@@ -33,6 +57,7 @@
 
 <script>
 import EventBus from '@/event-bus'
+import axios from 'axios'
 export default {
   inject: ['reload'],
   props: {
@@ -53,31 +78,27 @@ export default {
     return {
       songinfo: [],
       show: true,
+      baseURL: '',
+      filename: '',
     }
   },
   computed: {
     showimg() {
       const state = this.$store.state
-      console.log(this.getsongdetailid)
-      console.log(state.saveUserLikeSongListId.indexOf(this.getsongdetailid))
       if (state.saveUserLikeSongListId.indexOf(this.getsongdetailid) >= 0) {
         return false
       } else {
         return true
       }
-      // return this.getsongid
     },
   },
   methods: {
     toplaymusic() {
-      console.log('双击了')
-      console.log(this.singdetailinfo)
       this.$store.dispatch('playsonginfo', this.singdetailinfo)
       EventBus.$emit('songdetailinfo', this.singdetailinfo)
     },
-    
+
     checklikesong() {
-      console.log('点击了喜欢')
       let state = this.$store.state
       const songid = this.getsongdetailid
       const userid = state.userInfo.userid
@@ -93,11 +114,23 @@ export default {
           })
       } else {
         this.$api.cancellikesong({ userid, songid }).then((res) => {
-          console.log(res.data)
+          // console.log(res.data)
           this.$store.dispatch('deleteUserLikeSongListId', songid)
           this.reload()
         })
       }
+    },
+    download() {
+      const url = this.singdetailinfo.songurl
+      this.baseURL = this.$store.state.baseUrl + '/file/download?url=' + url
+      const baseurl = this.$store.state.baseUrl + '/file/download'
+      console.log(this.baseURL)
+      console.log(this.$store.state.baseUrl)
+      this.filename = url.substring(url.lastIndexOf('/') + 1)
+      console.log(url.substring(url.lastIndexOf('/') + 1))
+      // this.$api.download({ url }).then((res) => {
+      //   console.log(res)
+      // })
     },
   },
 }
@@ -107,15 +140,20 @@ export default {
 .likesong {
   width: 10%;
   height: 100%;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
   /* background-color: aqua; */
 }
 .likesong span {
   display: inline-block;
-  width: 50%;
+  /* width: 50%; */
+  height: 100%;
+  margin: 0 0.5rem;
+  width: 2rem;
 }
 .icon {
   width: 1.7rem;
-  height: 1.7rem;
+  height: 1.5rem;
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;

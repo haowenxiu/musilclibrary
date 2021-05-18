@@ -45,7 +45,8 @@ export default {
 }
 .content {
   width: 100%;
-  height: 100%;
+  /* height: 100vh; */
+
   margin-top: 6.1rem;
   border-top: 1px solid rgb(110, 109, 134);
   display: grid;
@@ -70,8 +71,7 @@ export default {
 }
 
 .right-content {
-  /* width: 80%; */
-  /* height: 200vh; */
+  /* width: 90rem; */
   width: 100%;
   /*display: flex;
   justify-content: center; */

@@ -32,7 +32,7 @@ axios.defaults.withCredentials = false;
 axios.defaults.headers.post["Content-Type"] =
   "application/x-www-from-urllencoded:charset=UTF-8";
 // axios.defaults.transformRequest = params => QS.stringify(params);
-
+axios.defaults.headers.get["Content-Type"] = "Access-Control-Allow-Origin";
 // 加载数据时，打开和关闭动画
 // const loading = {
 
@@ -151,3 +151,98 @@ export function post(url, params) {
       });
   });
 }
+export function download(url, params) {
+  // console.log(url);
+  // console.log(params);
+  return new Promise((resolve, reject) => {
+    axios({
+      method: "GET",
+      url: url,
+      data: params,
+      headers: {
+        "Content-Type": "application/x-download;charset=utf-8"
+      },
+      responseType: "blob"
+    })
+      .then(res => {
+        resolve(res);
+      })
+      .catch(err => {
+        reject(err);
+      });
+  });
+}
+
+// export default {
+//   //   下载关键代码
+//   download(url, params) {
+//     return new Promise((resolve, reject) => {
+//       axios({
+//         //   和后端协商好下载方法post/get?
+//         method: "Post",
+//         url: baseUrl + url,
+//         data: params,
+//         // headers: {
+//         //   "Content-Type": "application/json",
+//         //   // 设置请求头携带的token
+//         //   token: JSON.parse(localStorage.getItem("userInfo")).token
+//         // },
+//         responseType: "blob"
+//       })
+//         .then(res => {
+//           console.log(res);
+//           const fileName = res.headers["content-disposition"].split(
+//             "filename="
+//           )[1];
+//           const response = res.data;
+//           const r = new FileReader();
+//           r.onload = () => {
+//             try {
+//               const resData = JSON.parse(this.result);
+//               if (resData) {
+//                 if (resData.error_no === undefined) {
+//                   throw new Error("解析成功！");
+//                 } else if (resData.error_no !== "0") {
+//                   Message({
+//                     message: resData.error_info || "Error",
+//                     type: "error",
+//                     duration: 5 * 1000
+//                   });
+//                 }
+//               }
+//             } catch (err) {
+//               // 兼容ie11
+//               if (window.navigator.msSaveOrOpenBlob) {
+//                 try {
+//                   const blobObject = new Blob([response]);
+//                   window.navigator.msSaveOrOpenBlob(blobObject, fileName);
+//                 } catch (e) {
+//                   console.log(e);
+//                   reject(e);
+//                 }
+//                 return;
+//               }
+//               const url = window.URL.createObjectURL(new Blob([response]));
+//               const link = document.createElement("a");
+//               link.style.display = "none";
+//               link.href = url;
+//               link.setAttribute("download", fileName);
+//               document.body.appendChild(link);
+//               link.click();
+//             }
+//           };
+//           r.readAsText(response);
+//           resolve();
+//         })
+//         .catch(error => {
+//           console.log(error);
+//           Message({
+//             message: "下载失败！",
+//             type: "error",
+//             duration: 5 * 1000
+//           });
+//           reject(error);
+//         });
+//     });
+//   }
+// };

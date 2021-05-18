@@ -33,6 +33,15 @@ export default {
     let count = 0;
     const length = state.playsonginfo.length;
     for (let index = 0; index < length; index++) {
+      const path = payload.pic;
+      payload.pic =
+        state.imghead +
+        path.substring(path.lastIndexOf("/", path.lastIndexOf("/") - 2));
+      const url = payload.songurl;
+      payload.songurl =
+        state.songhead +
+        url.substring(url.lastIndexOf("/", url.lastIndexOf("/") - 2));
+      console.log(payload);
       if (state.playsonginfo[index].songname === payload.songname) {
         count++;
       }

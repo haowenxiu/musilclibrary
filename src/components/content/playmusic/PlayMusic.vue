@@ -35,7 +35,7 @@
               <div class="list"
                    v-for="(item,index) in reversemusiclist"
                    :key="index"
-                   @dblclick="playthissong(index)">
+                   @click="playthissong(index)">
                 <span>{{item.songname}}</span>
                 <span>{{item.singername}}</span>
                 <span @click="deleteInsonglist(item.songnum)"><i class="el-icon-close"></i></span>
@@ -80,7 +80,12 @@ export default {
   },
   mounted() {
     EventBus.$on('songdetailinfo', (info) => {
-      this.$refs.audioPlayer.play()
+      console.log(info)
+      const path = info.pic
+      info.pic =
+        this.$store.state.imghead +
+        path.substring(path.lastIndexOf('/', path.lastIndexOf('/') - 2))
+      // this.$refs.audioPlayer.play()
       this.audioList.unshift(info)
     })
     // this.$refs.audioPlayer.play()
@@ -123,7 +128,7 @@ export default {
     },
     colckplay() {
       const height = this.playheight.height
-      this.playheight.height = height == '' ? 12 + 'rem' : ''
+      this.playheight.height = height == '' ? 12.5 + 'rem' : ''
       this.colck = this.colck ? false : true
     },
     showmisuclist() {
@@ -151,12 +156,12 @@ export default {
   left: 0;
   right: 0;
   bottom: 0;
-  transition: height 1s;
+  transition: height 2.5s;
   cursor: pointer;
   z-index: 99;
 }
 .button-play:hover {
-  height: 12rem;
+  height: 12.5rem;
 }
 .colckplay {
   background-color: red;
@@ -198,8 +203,8 @@ export default {
 }
 .playname {
   position: relative;
-  left: 100%;
-  bottom: 3.4rem;
+  left: 85%;
+  bottom: 3.2rem;
 }
 .playname > span {
   display: inline-block;
