@@ -9,8 +9,8 @@ module.exports = {
     config.resolve.alias
       .set("@", resolve("./src"))
       .set("assets", resolve("./src/assets"))
-      .set("comp", resolve("./src/components"))
       .set("common", resolve("./src/common"))
+      .set("comp", resolve("./src/components"))
       .set("content", resolve("./src/components/content"))
       .set("network", resolve("./src/network"))
       .set("views", resolve("./src/views"));
