@@ -28,7 +28,8 @@
           <song-item>
             <song-item-row v-for="(item,index) in thesingersong"
                            :key="item.id"
-                           :singdetailinfo="item">
+                           :singdetailinfo="item.song"
+                           :getsongdetailid="item.songnum">
               <template #Song-Id>
                 <span>{{index+1}}</span>
               </template>

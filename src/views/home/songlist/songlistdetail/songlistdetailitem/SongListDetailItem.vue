@@ -93,7 +93,7 @@ export default {
 }
 .head-img {
   width: 20%;
-  height: 90%;
+  height: 15rem;
   margin: 0 1rem;
   border: 0.1rem solid #ddd;
   border-radius: 1rem;

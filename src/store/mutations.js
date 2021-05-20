@@ -69,6 +69,7 @@ export default {
     const length = state.collectsonglist;
     if (state.collectsonglist.indexOf(payload) < 0) {
       console.log("不存在");
+      console.log(payload);
       state.collectsonglist.push(payload);
     } else {
       console.log("存在");

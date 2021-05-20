@@ -123,6 +123,7 @@ export default {
 .like-song {
   width: 100%;
   height: 100%;
+  margin-bottom: 3rem;
   display: flex;
   justify-content: center;
   /* background-color: #f0f; */
@@ -130,8 +131,8 @@ export default {
 .likesong-content {
   width: 90%;
   height: 100%;
-  display: grid;
-  grid-template-rows: 37% 63%;
+  /* display: grid; */
+  /* grid-template-rows: 32% 63%; */
   /* background-color: aqua; */
 }
 .like-head {
@@ -139,7 +140,7 @@ export default {
 }
 .like-context {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   /* background-color: yellow; */
 }
 .like-context-title {
