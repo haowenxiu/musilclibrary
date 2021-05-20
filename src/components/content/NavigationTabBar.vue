@@ -45,7 +45,7 @@ export default {
 }
 .content {
   width: 100%;
-  /* height: 100vh; */
+  height: 100%;
 
   margin-top: 6.1rem;
   border-top: 1px solid rgb(110, 109, 134);
@@ -58,8 +58,9 @@ export default {
   /* height: 100%; */
   padding-top: 1.5rem;
   border-right: 0.1rem solid #b5b9be;
-  height: 90vh;
-  overflow-y: scroll;
+  height: 100vh;
+  overflow: hidden;
+  /* overflow-y: scroll; */
 }
 .left-content:hover {
   overflow-y: scroll;
@@ -71,8 +72,8 @@ export default {
 }
 
 .right-content {
-  /* width: 90rem; */
   width: 100%;
+  height: 100%;
   /*display: flex;
   justify-content: center; */
   /* align-items: center; */
