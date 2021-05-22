@@ -6,7 +6,8 @@
          v-else>
       <button @click="gologin()">去登录</button>
     </div>
-    <user-social-info class="social-info"></user-social-info>
+    <!-- <user-social-info class="social-info"></user-social-info> -->
+    <hr>
     <exit-login></exit-login>
   </div>
 </template>

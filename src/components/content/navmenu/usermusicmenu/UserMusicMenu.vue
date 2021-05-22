@@ -41,7 +41,7 @@ import MusicMenuItem from 'common/leftmenvrow/MusicMenuItem.vue'
 import ClickRouter from 'comp/common/clickrouter/ClickRouter.vue'
 import MusicMenuTitle from 'common/leftmenvrow/MusicMenuTitle.vue'
 export default {
-  components: { MusicMenuRow, MusicMenuItem, ClickRouter,MusicMenuTitle,  },
+  components: { MusicMenuRow, MusicMenuItem, ClickRouter, MusicMenuTitle },
   name: 'UserMusicMenu',
 }
 </script>

@@ -24,6 +24,15 @@ const collectlikesong = p => post("/user/insertlikesong", p);
 const cancellikesong = p => post("/user/deletelikesong", p);
 // 用户喜欢歌曲列表
 const getuserlikesonglist = p => get("/user/selectlikesonglist", p);
+// 用户上传歌曲
+const insertuploadsong = p => post("/user/insertuploadsong", p);
+// 查询该用户所有的上传文件
+const selectuploadsong = p => get("/user/selectuploadsong", p);
+const getcollectsonglist = p => get("/user/getcollectsonglist", p);
+
+const updateuserinfo = p => post("/user/updateuserinfo", p);
+const selectuserinfo = p => get("/user/selectuserinfo", p);
+
 /**
  *  非用户相关
  * */
@@ -56,11 +65,16 @@ export default {
   gethomesonglist,
   getsonglistbyid,
   getUserCollectSongList,
+  getcollectsonglist,
   collectsonglist,
   cancelsonglist,
   collectlikesong,
   cancellikesong,
   getuserlikesonglist,
   download,
-  dimSerch
+  dimSerch,
+  insertuploadsong,
+  selectuploadsong,
+  updateuserinfo,
+  selectuserinfo
 };

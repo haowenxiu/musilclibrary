@@ -14,6 +14,7 @@ import {
 export const USER_KEY = "hm-toutiao-m-user";
 export default {
   [SAVEUSERINFO](state, payload) {
+    payload.headphoto = state.imghead + payload.headphoto;
     state.userInfo = payload;
   },
   [SAVETOKEN](state, payload) {

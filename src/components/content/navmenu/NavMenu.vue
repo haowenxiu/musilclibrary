@@ -3,7 +3,7 @@
     <!-- 系统自带 -->
     <music-menu></music-menu>
     <!-- 我的音乐 -->
-    <user-music-menu></user-music-menu>
+    <!-- <user-music-menu></user-music-menu> -->
     <!-- 用户自建歌单 -->
     <!-- <user-created-menu></user-created-menu> -->
     <!-- 收藏歌单 -->

@@ -100,7 +100,7 @@ export default {
     },
     returnaudioListpic() {
       if (this.audioList.length == 0) {
-        return null
+        return this.audioList.pic="https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg"
       }
       return this.audioList[this.indexsong].pic
     },

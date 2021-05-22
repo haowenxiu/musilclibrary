@@ -1,7 +1,6 @@
 <template>
   <div class="usersimpleinfo">
-    <social-data>
-
+    <!-- <social-data>
       <template>
         <social-data-item path='/dynamicState'>
           <template v-slot:Social-Data-Item-num>
@@ -33,7 +32,7 @@
           </template>
         </social-data-item>
       </template>
-    </social-data>
+    </social-data> -->
     <div class="basicinfo-btn">
       <click-router path='/UserCenter'>
         <button><span>个人中心</span></button>
@@ -60,7 +59,8 @@ export default {
 <style>
 .usersimpleinfo {
   width: 100%;
-  height: 15rem;
+  height: 100%;
+  margin-top: 2rem;
   display: grid;
   grid-template-rows: 1fr 1fr;
 }

@@ -11,9 +11,28 @@
       </music-menu-item>
     </click-router>
 
-    <click-router path="/RankingList">
+    <click-router path="/UserCenter">
       <music-menu-item>
-        <template v-slot:menu-text>音乐排行榜</template>
+        <template v-slot:menu-text>用户中心</template>
+      </music-menu-item>
+    </click-router>
+    <click-router path="/Mylovemusiclist">
+      <music-menu-item>
+        <!-- <template v-slot:menu-icon>
+          <span class="iconfont icon-like-line"></span>
+        </template> -->
+        <template v-slot:menu-text>我喜欢的音乐</template>
+        <template v-slot:menu-extra>
+          <span class="iconfont icon-icon_huabanfuben"></span>
+        </template>
+      </music-menu-item>
+    </click-router>
+    <click-router path="/Musicnetworklocation">
+      <music-menu-item>
+        <!-- <template v-slot:menu-icon>
+          <span class="iconfont icon-yun"></span>
+        </template> -->
+        <template v-slot:menu-text>我的云音乐盘</template>
       </music-menu-item>
     </click-router>
 

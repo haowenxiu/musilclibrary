@@ -3,7 +3,7 @@
   <div id="nav">
     <el-row :gutter="20">
       <!-- 标签 -->
-      <el-col :span="6">
+      <el-col :span="7">
         <click-router class="grid-content bg-purple Log"
                       path="/homePage">
           <svg class="icon"
@@ -15,7 +15,8 @@
       </el-col>
 
       <!-- 前进和后退按钮 -->
-      <el-col :span="2">
+      <!-- 考虑取消  一个在前，一个在最后-->
+      <!-- <el-col :span="2">
         <div class="grid-content bg-purple Go-Back">
           <button class="iconfont icon-arrow-left goback-btn"
                   @click="previous"
@@ -24,8 +25,7 @@
                   @click="next"
                   v-show="activeStyleright"></button>
         </div>
-
-      </el-col>
+      </el-col> -->
       <!-- 搜索框 -->
       <el-col :span="9">
         <div class="grid-content bg-purple find">
@@ -51,8 +51,7 @@
         </div>
       </el-col>
       <!-- 用户中心 -->
-      <el-col :span="
-                     7">
+      <el-col :span="8">
         <div class="grid-content bg-purple login">
           <nav-login></nav-login>
         </div>

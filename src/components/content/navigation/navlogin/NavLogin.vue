@@ -76,7 +76,7 @@ export default {
       this.username = userinfo.name ? userinfo.name : this.username
       if (userHeadImg != null) {
         // console.log(this.$store.state.imghead+userHeadImg)
-        this.userimg = this.$store.state.imghead + userHeadImg
+        this.userimg = userHeadImg
         console.log(this.userimg)
       }
       // changePhotoToBase64(userinfo.headphoto)

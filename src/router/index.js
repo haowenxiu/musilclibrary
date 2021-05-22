@@ -6,7 +6,7 @@ const that = this;
 const routes = [
   {
     path: "",
-    redirect: "/homePage"
+    redirect: "/changeinfo"
   },
   {
     path: "/homePage",
@@ -44,6 +44,24 @@ const routes = [
     path: "/Mylovemusiclist",
     component: () =>
       import("../views/usermusicmenu/mylikemusic/MylikeMusic.vue"),
+    meta: {
+      requireAuth: true
+    }
+  },
+  {
+    path: "/Musicnetworklocation",
+    component: () =>
+      import(
+        "../views/usermusicmenu/musicnetworklocation/MusicNetworkLocation.vue"
+      ),
+    meta: {
+      requireAuth: true
+    }
+  },
+  {
+    path: "/changeinfo",
+    component: () =>
+      import("../views/usercenter/changeuserinfo/ChangeUserInfo.vue"),
     meta: {
       requireAuth: true
     }
