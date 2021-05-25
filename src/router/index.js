@@ -6,7 +6,7 @@ const that = this;
 const routes = [
   {
     path: "",
-    redirect: "/changeinfo"
+    redirect: "/homePage"
   },
   {
     path: "/homePage",

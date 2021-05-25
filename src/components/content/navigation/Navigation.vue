@@ -6,7 +6,7 @@
       <el-col :span="7">
         <click-router class="grid-content bg-purple Log"
                       path="/homePage">
-          <svg class="icon"
+          <svg class="sign"
                aria-hidden="true">
             <use xlink:href="#icon-music-rf"></use>
           </svg>
@@ -144,9 +144,16 @@ export default {
   top: 0;
   background-color: var(--color-tint);
 }
-.icon {
+/* .icon {
   width: 3.5rem;
   height: 3.5rem;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+} */
+.sign {
+  width: 2.7rem;
+  height: 2.7rem;
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;

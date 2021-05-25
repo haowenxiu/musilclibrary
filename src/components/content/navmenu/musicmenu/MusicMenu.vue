@@ -11,11 +11,11 @@
       </music-menu-item>
     </click-router>
 
-    <click-router path="/UserCenter">
+    <!-- <click-router path="/UserCenter">
       <music-menu-item>
         <template v-slot:menu-text>用户中心</template>
       </music-menu-item>
-    </click-router>
+    </click-router> -->
     <click-router path="/Mylovemusiclist">
       <music-menu-item>
         <!-- <template v-slot:menu-icon>
