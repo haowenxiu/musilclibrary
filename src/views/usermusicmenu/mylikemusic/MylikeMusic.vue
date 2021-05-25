@@ -11,9 +11,9 @@
             <span>歌单</span>
             <span>{{info.title}}</span>
           </template>
-          <template #SongList-Button>
+          <!-- <template #SongList-Button>
             <button>{{info.collect_title}}</button>
-          </template>
+          </template> -->
           <template #SongList-Nickname>
             <span>标签</span>
             <span>{{info.style}}</span>
